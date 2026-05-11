@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Level 1 — EnglishPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">English<span>Path</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="level1.html" class="active">Level 1</a>
+      <a href="level2.html">Level 2</a>
+      <a href="level3.html">Level 3</a>
+      <a href="level4.html">Level 4+</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-top">
+        <div class="lv-badge" style="background:var(--l1-light);color:var(--l1);">Level 1</div>
+        <div class="sidebar-title">Beginner Foundations</div>
+      </div>
+      <div class="timer-block">
+        <div class="timer-label">Session Time Left</div>
+        <div class="timer-display" id="timer">60:00</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="background:var(--l1);width:0%"></div>
+      </div>
+      <div class="agenda-list">
+        <h4>Session Agenda</h4>
+        <div class="agenda-item active" onclick="scrollToSection('warmup')">
+          <div class="ai-dot"></div>
+          <div class="ai-info">
+            <div class="ai-title">Warm-up</div>
+            <div class="ai-time">5 min — 0:00–5:00</div>
+          </div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('vocabulary')">
+          <div class="ai-dot"></div>
+          <div class="ai-info">
+            <div class="ai-title">Vocabulary</div>
+            <div class="ai-time">15 min — 5:00–20:00</div>
+          </div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('grammar')">
+          <div class="ai-dot"></div>
+          <div class="ai-info">
+            <div class="ai-title">Grammar — To Be</div>
+            <div class="ai-time">20 min — 20:00–40:00</div>
+          </div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exercises')">
+          <div class="ai-dot"></div>
+          <div class="ai-info">
+            <div class="ai-title">Practice Exercises</div>
+            <div class="ai-time">15 min — 40:00–55:00</div>
+          </div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('quiz')">
+          <div class="ai-dot"></div>
+          <div class="ai-info">
+            <div class="ai-title">Review &amp; Quiz</div>
+            <div class="ai-time">5 min — 55:00–60:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <h1>Level 1 — Lesson 1</h1>
+      <p>Greetings, basic vocabulary, and the verb <strong>"To Be"</strong>.</p>
+    </div>
+
+    <!-- 1. WARM-UP -->
+    <section class="lesson-block" id="warmup">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>Warm-up</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+      <div class="grammar-box">
+        <div class="grammar-box-head">
+          <h3>👋 Welcome to your first English session!</h3>
+        </div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;">In this lesson you will learn:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:0.9rem;">✅ Basic greetings — Hello, Goodbye, Thank you</li>
+            <li style="font-size:0.9rem;">✅ Family words — mother, father, brother, sister</li>
+            <li style="font-size:0.9rem;">✅ Numbers 1–10</li>
+            <li style="font-size:0.9rem;">✅ The verb "To Be" — I am, You are, He/She is</li>
+            <li style="font-size:0.9rem;">✅ 4 exercises + a final quiz</li>
+          </ul>
+          <div class="note-box" style="margin-top:1rem;background:#F0FFF4;border-color:#B7E4C7;color:var(--l1);">
+            <strong>💡 Tip for beginners</strong>
+            Don't worry about being perfect. Read each section slowly, say the words out loud, and practice the exercises. That's all you need!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- 2. VOCABULARY -->
+    <section class="lesson-block" id="vocabulary">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>Vocabulary</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <p style="margin-bottom:1rem;color:var(--ink-light);font-size:0.95rem;">Learn these words. Say each one out loud!</p>
+
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.75rem;">🤝 Greetings — التحيات</h3>
+      <div class="vocab-grid" style="margin-bottom:1.5rem;">
+        <div class="vocab-card"><div class="vocab-en">Hello</div><div class="vocab-ar">مرحبا</div><div class="vocab-example">"Hello! How are you?"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Goodbye</div><div class="vocab-ar">وداعاً</div><div class="vocab-example">"Goodbye, see you later!"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Thank you</div><div class="vocab-ar">شكراً</div><div class="vocab-example">"Thank you very much."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Please</div><div class="vocab-ar">من فضلك</div><div class="vocab-example">"Water, please."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Sorry</div><div class="vocab-ar">آسف</div><div class="vocab-example">"Sorry, I don't understand."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Yes / No</div><div class="vocab-ar">نعم / لا</div><div class="vocab-example">"Yes, I am a student."</div></div>
+      </div>
+
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.75rem;">👨‍👩‍👧 Family — العائلة</h3>
+      <div class="vocab-grid" style="margin-bottom:1.5rem;">
+        <div class="vocab-card"><div class="vocab-en">Mother</div><div class="vocab-ar">أم</div></div>
+        <div class="vocab-card"><div class="vocab-en">Father</div><div class="vocab-ar">أب</div></div>
+        <div class="vocab-card"><div class="vocab-en">Brother</div><div class="vocab-ar">أخ</div></div>
+        <div class="vocab-card"><div class="vocab-en">Sister</div><div class="vocab-ar">أخت</div></div>
+        <div class="vocab-card"><div class="vocab-en">Son</div><div class="vocab-ar">ابن</div></div>
+        <div class="vocab-card"><div class="vocab-en">Daughter</div><div class="vocab-ar">ابنة</div></div>
+      </div>
+
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.75rem;">🔢 Numbers — الأرقام</h3>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vocab-en">One</div><div class="vocab-ar">واحد (1)</div></div>
+        <div class="vocab-card"><div class="vocab-en">Two</div><div class="vocab-ar">اثنان (2)</div></div>
+        <div class="vocab-card"><div class="vocab-en">Three</div><div class="vocab-ar">ثلاثة (3)</div></div>
+        <div class="vocab-card"><div class="vocab-en">Four</div><div class="vocab-ar">أربعة (4)</div></div>
+        <div class="vocab-card"><div class="vocab-en">Five</div><div class="vocab-ar">خمسة (5)</div></div>
+        <div class="vocab-card"><div class="vocab-en">Ten</div><div class="vocab-ar">عشرة (10)</div></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- 3. GRAMMAR -->
+    <section class="lesson-block" id="grammar">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>Grammar — The Verb "To Be"</h2>
+        <span class="block-time">⏱ 20 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head">
+          <h3>📐 The Rule — القاعدة</h3>
+        </div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">The verb "To Be" changes depending on who we are talking about (the subject).</div>
+            <div class="rule-ar">الفعل "To Be" يتغير حسب الضمير — أنا، أنت، هو، هي...</div>
+          </div>
+
+          <table class="formula-table" style="margin-bottom:1rem;">
+            <thead>
+              <tr>
+                <th>Subject (الضمير)</th>
+                <th>Verb (الفعل)</th>
+                <th>Short form</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>I (أنا)</td><td><span class="hl">am</span></td><td>I'm</td><td>I am a student.</td></tr>
+              <tr><td>You (أنت)</td><td><span class="hl">are</span></td><td>You're</td><td>You are my friend.</td></tr>
+              <tr><td>He (هو)</td><td><span class="hl">is</span></td><td>He's</td><td>He is a teacher.</td></tr>
+              <tr><td>She (هي)</td><td><span class="hl">is</span></td><td>She's</td><td>She is happy.</td></tr>
+              <tr><td>It (هو/هي للأشياء)</td><td><span class="hl">is</span></td><td>It's</td><td>It is a book.</td></tr>
+              <tr><td>We (نحن)</td><td><span class="hl">are</span></td><td>We're</td><td>We are friends.</td></tr>
+              <tr><td>They (هم)</td><td><span class="hl">are</span></td><td>They're</td><td>They are students.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="note-box">
+            <strong>🧠 How to remember:</strong>
+            Only <strong>"I"</strong> uses <strong>am</strong>. He/She/It uses <strong>is</strong>. Everything else uses <strong>are</strong>.
+            <br/>فقط "I" تستخدم "am"، وHe/She/It تستخدم "is"، والباقي يستخدم "are"
+          </div>
+        </div>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head">
+          <h3>❌ Negative Form — النفي</h3>
+        </div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">To make a negative sentence, add <strong>"not"</strong> after the verb "to be".</div>
+            <div class="rule-ar">لجعل الجملة نافية، أضف "not" بعد الفعل</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">am not</span> tired. (I'm not tired)</span><span class="example-ar">لست متعباً</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">is not</span> happy. (She isn't happy)</span><span class="example-ar">هي ليست سعيدة</span></div></li>
+            <li><div><span class="example-en">They <span class="hl">are not</span> students. (They aren't students)</span><span class="example-ar">هم ليسوا طلاباً</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grammar-box">
+        <div class="grammar-box-head">
+          <h3>❓ Question Form — السؤال</h3>
+        </div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">To ask a question, move "To Be" to the BEGINNING of the sentence.</div>
+            <div class="rule-ar">للسؤال، ضع الفعل في بداية الجملة</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en"><span class="hl">Are</span> you a student? — Yes, I am. / No, I'm not.</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Is</span> she your sister? — Yes, she is. / No, she isn't.</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Are</span> they from Lebanon? — Yes, they are.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- 4. EXERCISES -->
+    <section class="lesson-block" id="exercises">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>Practice Exercises</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <!-- Exercise 1 -->
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 1 — Multiple Choice</div>
+        <div class="ex-question">Which word means "شكراً" in English?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l1_q1')">Hello</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l1_q1')">Please</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb1','l1_q1')">Thank you</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l1_q1')">Goodbye</button>
+        </div>
+        <div class="ex-feedback" id="fb1"></div>
+      </div>
+
+      <!-- Exercise 2 -->
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 2 — Fill in the blank</div>
+        <div class="ex-question">Complete: "She ___ a doctor."</div>
+        <div class="fill-hint">Choose: am / is / are</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f2" type="text" placeholder="am / is / are"/>
+          <button class="check-btn" onclick="checkFill('f2','is','fb2','l1_q2')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb2"></div>
+      </div>
+
+      <!-- Exercise 3 -->
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 3 — Multiple Choice</div>
+        <div class="ex-question">What is the correct sentence?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l1_q3')">I are a student.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb3','l1_q3')">I am a student.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l1_q3')">I is a student.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l1_q3')">I be a student.</button>
+        </div>
+        <div class="ex-feedback" id="fb3"></div>
+      </div>
+
+      <!-- Exercise 4 -->
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 4 — Fill in the blank</div>
+        <div class="ex-question">Complete: "They ___ my friends."</div>
+        <div class="fill-hint">Choose: am / is / are</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f4" type="text" placeholder="am / is / are"/>
+          <button class="check-btn" onclick="checkFill('f4','are','fb4','l1_q4')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb4"></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- 5. QUIZ -->
+    <section class="lesson-block" id="quiz">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>Review &amp; Final Quiz</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📝 Quick Review</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en"><span class="hl">I am</span> = أنا أكون</span></div></li>
+            <li><div><span class="example-en"><span class="hl">You are</span> = أنت تكون</span></div></li>
+            <li><div><span class="example-en"><span class="hl">He/She is</span> = هو/هي يكون</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Negative:</span> am not / is not / are not</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Question:</span> Am I...? / Is she...? / Are they...?</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bonus quiz -->
+      <div class="exercise-block">
+        <div class="ex-label">Bonus Question</div>
+        <div class="ex-question">How do you say "هو ليس مريضاً" in English?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l1_q5')">He are not sick.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l1_q5')">He am not sick.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb5','l1_q5')">He is not sick.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l1_q5')">He not is sick.</button>
+        </div>
+        <div class="ex-feedback" id="fb5"></div>
+      </div>
+
+      <div class="score-box" id="score-box">
+        <div class="score-num" id="final-score">—</div>
+        <div class="score-label">Click "Calculate Score" to see your result</div>
+        <div class="nav-btns">
+          <button class="nav-btn nav-btn-light" onclick="showScore()">Calculate Score</button>
+          <a href="level2.html" class="nav-btn nav-btn-accent">Next: Level 2 →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/lesson.js"></script>
+<script>
+function showScore() {
+  const keys = ['l1_q1','l1_q2','l1_q3','l1_q4','l1_q5'];
+  const s = calcScore(keys);
+  document.getElementById('final-score').textContent = s + '/5';
+  const label = s >= 4 ? 'Excellent! You are ready for Level 2! 🎉' : s >= 3 ? 'Good job! Review the grammar and try Level 2.' : 'Keep practicing Level 1 before moving on.';
+  document.querySelector('.score-label').textContent = label;
+}
+</script>
+</body>
+</html>

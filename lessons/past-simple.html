@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Simple Past Tense — EnglishPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<style>
+  .progress-fill { background: #B45309 !important; }
+  .block-num { background: #B45309 !important; }
+
+  /* Exam-specific styles */
+  .exam-section {
+    background: #1A1A1A;
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+  .exam-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 1.5rem;
+  }
+  .exam-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .exam-header p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+  .exam-badge {
+    display: inline-block;
+    background: #E85D04;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+  .exam-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #E85D04;
+    margin: 1.75rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .exam-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+  .exam-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .exam-block .ex-label { color: rgba(255,255,255,0.5); }
+  .exam-block .ex-question { color: #fff; }
+  .exam-block .ex-opt {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+  }
+  .exam-block .ex-opt:hover:not(:disabled) {
+    border-color: #E85D04;
+    background: rgba(232,93,4,0.15);
+  }
+  .exam-block .fill-hint { color: rgba(255,255,255,0.45); }
+  .exam-block .fill-in {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+  .exam-block .fill-in:focus { border-color: #E85D04; }
+  .exam-block .check-btn { background: #E85D04; }
+  .exam-block .check-btn:hover { background: #B45309; }
+  .exam-block .ex-feedback.ok { color: #6EE7B7; }
+  .exam-block .ex-feedback.err { color: #FCA5A5; }
+  .exam-score-box {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(232,93,4,0.4);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .exam-score-num {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #E85D04;
+    font-family: 'DM Mono', monospace;
+  }
+  .exam-score-label { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 1rem; }
+  .exam-score-bar {
+    height: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .exam-score-fill {
+    height: 100%;
+    background: #E85D04;
+    border-radius: 999px;
+    transition: width 1s ease;
+    width: 0%;
+  }
+  .exam-grade {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .irregular-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+    margin-top: 0.75rem;
+  }
+  .irr-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 0.875rem;
+    gap: 4px;
+  }
+  .irr-base { color: var(--ink-light); }
+  .irr-past { color: var(--accent); font-weight: 700; }
+  .irr-ar { color: var(--ink-muted); font-size: 0.78rem; direction: rtl; text-align: right; }
+  .spelling-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    margin-top: 0.75rem;
+  }
+  .spell-card {
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+  }
+  .spell-rule { font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .spell-ex { color: var(--ink-muted); }
+  .spell-ex span { color: var(--accent); font-weight: 600; }
+  .uses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 0.75rem;
+  }
+  .use-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .use-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .use-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+  .use-ex { font-size: 0.8rem; color: var(--ink-muted); font-style: italic; }
+  .formula-box {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.95rem;
+    margin: 0.75rem 0;
+    letter-spacing: 0.02em;
+  }
+  .formula-box .f-plus { color: rgba(255,255,255,0.4); margin: 0 6px; }
+  .formula-box .f-key { color: #E85D04; font-weight: 700; }
+  .formula-box .f-opt { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  .signal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.75rem; }
+  .signal-tag {
+    background: #FFF8F0;
+    border: 1px solid #FDEBD0;
+    color: #B45309;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .mistake-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+  .mistake-wrong {
+    background: #FDEBD0;
+    border: 1px solid #F6AE6A;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.875rem;
+    color: #C05621;
+  }
+  .mistake-right {
+    background: #D8F3DC;
+    border: 1px solid #B7E4C7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.875rem;
+    color: #2D6A4F;
+  }
+  .mistake-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">English<span>Path</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="level1.html">Level 1</a>
+      <a href="level2.html">Level 2</a>
+      <a href="level3.html">Level 3</a>
+      <a href="level4.html">Level 4+</a>
+      <a href="past-simple.html" class="active">Past Simple</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-top">
+        <div class="lv-badge" style="background:#FEF3C7;color:#B45309;">Grammar</div>
+        <div class="sidebar-title">Simple Past Tense</div>
+      </div>
+      <div class="timer-block">
+        <div class="timer-label">Session Time Left</div>
+        <div class="timer-display" id="timer">60:00</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <div class="agenda-list">
+        <h4>Session Agenda</h4>
+        <div class="agenda-item active" onclick="scrollToSection('warmup')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Introduction</div><div class="ai-time">5 min — 0:00–5:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('vocabulary')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Time Expressions &amp; Verbs</div><div class="ai-time">10 min — 5:00–15:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('grammar')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Grammar — Full Guide</div><div class="ai-time">20 min — 15:00–35:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exercises')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Practice Exercises</div><div class="ai-time">10 min — 35:00–45:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exam')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Big Final Exam</div><div class="ai-time">15 min — 45:00–60:00</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <h1>Simple Past Tense — الماضي البسيط</h1>
+      <p>A complete, detailed guide to forming and using the <strong>Simple Past Tense</strong> in English, with a full 20-question exam at the end.</p>
+    </div>
+
+    <!-- ===== 1. WARM-UP ===== -->
+    <section class="lesson-block" id="warmup">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>Introduction</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📖 What will you learn today?</h3></div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;">This lesson covers <strong>everything</strong> about the Simple Past Tense:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:0.9rem;">✅ When to use the Simple Past (5 uses)</li>
+            <li style="font-size:0.9rem;">✅ Time expressions that go with it</li>
+            <li style="font-size:0.9rem;">✅ Regular verbs — all 4 spelling rules for -ed</li>
+            <li style="font-size:0.9rem;">✅ Irregular verbs — 40+ essential verbs to memorize</li>
+            <li style="font-size:0.9rem;">✅ Was / Were — past tense of "To Be"</li>
+            <li style="font-size:0.9rem;">✅ Negative form (didn't / wasn't / weren't)</li>
+            <li style="font-size:0.9rem;">✅ Question form (Did / Was / Were...?)</li>
+            <li style="font-size:0.9rem;">✅ Short answers</li>
+            <li style="font-size:0.9rem;">✅ Common mistakes to avoid</li>
+            <li style="font-size:0.9rem;">✅ 5 practice exercises + 20-question Big Exam</li>
+          </ul>
+          <div class="note-box" style="margin-top:1rem;background:#FEF3C7;border-color:#FDE68A;color:#B45309;">
+            <strong>💡 Why is this tense important?</strong>
+            The Simple Past is one of the most used tenses in English. We use it every day to talk about things that happened — stories, news, conversations, and memories. Master this tense and your English will improve dramatically!
+            <br/><br/>
+            المضي البسيط هو أحد أكثر الأزمنة استخداماً في الإنجليزية — نستخدمه كل يوم للحديث عن أشياء حدثت في الماضي.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 2. VOCABULARY ===== -->
+    <section class="lesson-block" id="vocabulary">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>Time Expressions &amp; Useful Verbs</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>⏰ Signal Words — كلمات تشير إلى الماضي</h3></div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--ink-light);">These words tell you that the sentence is in the Simple Past. When you see them, use the past tense!</p>
+          <div class="signal-tags">
+            <span class="signal-tag">yesterday</span>
+            <span class="signal-tag">last night</span>
+            <span class="signal-tag">last week</span>
+            <span class="signal-tag">last month</span>
+            <span class="signal-tag">last year</span>
+            <span class="signal-tag">... ago (two days ago)</span>
+            <span class="signal-tag">in + year (in 2020)</span>
+            <span class="signal-tag">this morning</span>
+            <span class="signal-tag">the day before yesterday</span>
+            <span class="signal-tag">when I was young</span>
+            <span class="signal-tag">once upon a time</span>
+            <span class="signal-tag">in the past</span>
+            <span class="signal-tag">at that time</span>
+            <span class="signal-tag">then</span>
+            <span class="signal-tag">just now</span>
+          </div>
+          <div class="note-box" style="margin-top:1rem;">
+            <strong>📌 Examples with signal words:</strong>
+            <br/>I <span style="color:var(--accent);font-weight:600;">went</span> to school <strong>yesterday</strong>.
+            <br/>She <span style="color:var(--accent);font-weight:600;">worked</span> here <strong>five years ago</strong>.
+            <br/>They <span style="color:var(--accent);font-weight:600;">met</span> <strong>last Monday</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📚 Useful Verbs to Know (Base Form)</h3></div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--ink-light);">You will need these common verbs in this lesson. We will learn their past forms in the Grammar section.</p>
+          <div class="vocab-grid">
+            <div class="vocab-card"><div class="vocab-en">go</div><div class="vocab-ar">يذهب</div></div>
+            <div class="vocab-card"><div class="vocab-en">eat</div><div class="vocab-ar">يأكل</div></div>
+            <div class="vocab-card"><div class="vocab-en">drink</div><div class="vocab-ar">يشرب</div></div>
+            <div class="vocab-card"><div class="vocab-en">study</div><div class="vocab-ar">يدرس</div></div>
+            <div class="vocab-card"><div class="vocab-en">work</div><div class="vocab-ar">يعمل</div></div>
+            <div class="vocab-card"><div class="vocab-en">watch</div><div class="vocab-ar">يشاهد</div></div>
+            <div class="vocab-card"><div class="vocab-en">play</div><div class="vocab-ar">يلعب</div></div>
+            <div class="vocab-card"><div class="vocab-en">visit</div><div class="vocab-ar">يزور</div></div>
+            <div class="vocab-card"><div class="vocab-en">buy</div><div class="vocab-ar">يشتري</div></div>
+            <div class="vocab-card"><div class="vocab-en">sleep</div><div class="vocab-ar">ينام</div></div>
+            <div class="vocab-card"><div class="vocab-en">write</div><div class="vocab-ar">يكتب</div></div>
+            <div class="vocab-card"><div class="vocab-en">read</div><div class="vocab-ar">يقرأ</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 3. GRAMMAR ===== -->
+    <section class="lesson-block" id="grammar">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>Grammar — The Complete Guide</h2>
+        <span class="block-time">⏱ 20 min</span>
+      </div>
+
+      <!-- 3.1 When to use -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 When do we use Simple Past? — متى نستخدمه؟</h3></div>
+        <div class="grammar-box-body">
+          <div class="uses-grid">
+            <div class="use-card">
+              <div class="use-num">Use 1</div>
+              <div class="use-title">Completed past actions</div>
+              <div class="use-ex">"I <span style="color:var(--accent)">visited</span> Beirut last year."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">أحداث منتهية في الماضي</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 2</div>
+              <div class="use-title">Series of past events</div>
+              <div class="use-ex">"I <span style="color:var(--accent)">woke up</span>, <span style="color:var(--accent)">ate</span> breakfast and <span style="color:var(--accent)">left</span>."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">سلسلة من الأحداث الماضية</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 3</div>
+              <div class="use-title">Habits in the past</div>
+              <div class="use-ex">"He <span style="color:var(--accent)">played</span> football every day as a child."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">عادات ماضية (لم تعد موجودة)</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 4</div>
+              <div class="use-title">Facts about the past</div>
+              <div class="use-ex">"Einstein <span style="color:var(--accent)">was</span> a scientist."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">حقائق تاريخية</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 5</div>
+              <div class="use-title">Storytelling &amp; narratives</div>
+              <div class="use-ex">"Once upon a time, a king <span style="color:var(--accent)">lived</span>..."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">القصص والحكايات</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 Affirmative -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>✅ Affirmative Form — الجملة المثبتة</h3></div>
+        <div class="grammar-box-body">
+          <div class="formula-box">
+            <span class="f-key">Subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">Past Verb</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">rest of sentence</span>
+          </div>
+          <div class="rule-block" style="margin-top:1rem;">
+            <div class="rule-label">Important Note</div>
+            <div class="rule-text">The past form is the SAME for all subjects — I, you, he, she, it, we, they all use the same form.</div>
+            <div class="rule-ar">شكل الماضي واحد لجميع الضمائر — لا تغيير!</div>
+          </div>
+          <ul class="examples-list" style="margin-top:0.75rem;">
+            <li><div><span class="example-en">I <span class="hl">worked</span> yesterday.</span><span class="example-ar">أنا عملت أمس</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">worked</span> yesterday.</span><span class="example-ar">هي عملت أمس</span></div></li>
+            <li><div><span class="example-en">They <span class="hl">worked</span> yesterday.</span><span class="example-ar">هم عملوا أمس</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3.3 Regular verbs -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📝 Regular Verbs — الأفعال المنتظمة (add -ed)</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">General Rule</div>
+            <div class="rule-text">Regular verbs form the past by adding <strong>"-ed"</strong> to the base form.</div>
+            <div class="rule-ar">الأفعال المنتظمة تكوّن الماضي بإضافة "-ed" للفعل الأصلي</div>
+          </div>
+
+          <!-- Vowels & Consonants explainer -->
+          <div style="margin:1.25rem 0;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:10px;padding:14px;">
+              <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#1D4E89;margin-bottom:8px;">🔤 Vowel Letters — حروف العلة</div>
+              <div style="display:flex;gap:10px;justify-content:center;margin-bottom:8px;">
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">A</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">E</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">I</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">O</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">U</span>
+              </div>
+              <div style="font-size:0.8rem;color:#1D4E89;">Only these 5 letters are vowels.</div>
+              <div style="font-size:0.75rem;color:#3B82F6;margin-top:4px;direction:rtl;text-align:right;">هذه الحروف الخمسة فقط هي حروف العلة</div>
+            </div>
+            <div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:10px;padding:14px;">
+              <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#C05621;margin-bottom:8px;">🔠 Consonant Letters — الحروف الساكنة</div>
+              <div style="font-size:0.82rem;color:#C05621;margin-bottom:6px;line-height:1.7;font-family:'DM Mono',monospace;letter-spacing:0.05em;">B C D F G H J K L M<br/>N P Q R S T V W X Y Z</div>
+              <div style="font-size:0.8rem;color:#C05621;">All letters that are <strong>NOT</strong> vowels.</div>
+              <div style="font-size:0.75rem;color:#EA580C;margin-top:4px;direction:rtl;text-align:right;">كل الحروف التي ليست حروف علة</div>
+            </div>
+          </div>
+
+          <div style="background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:10px;padding:14px;margin-bottom:1.25rem;">
+            <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#2D6A4F;margin-bottom:8px;">📌 What is a "Short Vowel + Single Consonant"? — ما معنى هذا؟</div>
+            <p style="font-size:0.875rem;color:#2D6A4F;margin-bottom:0.6rem;">A <strong>short vowel</strong> is when a vowel (a, e, i, o, u) makes a short sound — not a long sound. A <strong>single consonant</strong> means there is only ONE consonant letter at the end of the word (not two).</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.82rem;">
+              <div style="background:#D8F3DC;border-radius:8px;padding:10px;">
+                <div style="font-weight:700;color:#2D6A4F;margin-bottom:4px;">✓ Applies Rule 4:</div>
+                <div style="color:#2D6A4F;"><strong>stop</strong> &nbsp;→&nbsp; s·<u>to</u>·<u>p</u> &nbsp;(short <strong>o</strong> + single <strong>p</strong>)</div>
+                <div style="color:#2D6A4F;margin-top:2px;"><strong>plan</strong> &nbsp;→&nbsp; p·<u>la</u>·<u>n</u> &nbsp;(short <strong>a</strong> + single <strong>n</strong>)</div>
+                <div style="color:#2D6A4F;margin-top:2px;"><strong>fit</strong> &nbsp;→&nbsp; f·<u>i</u>·<u>t</u> &nbsp;(short <strong>i</strong> + single <strong>t</strong>)</div>
+              </div>
+              <div style="background:#FDEBD0;border-radius:8px;padding:10px;">
+                <div style="font-weight:700;color:#C05621;margin-bottom:4px;">✗ Does NOT apply:</div>
+                <div style="color:#C05621;"><strong>talk</strong> &nbsp;→&nbsp; ends in two consonants (<strong>lk</strong>)</div>
+                <div style="color:#C05621;margin-top:2px;"><strong>rain</strong> &nbsp;→&nbsp; ends in two vowels + n</div>
+                <div style="color:#C05621;margin-top:2px;"><strong>visit</strong> &nbsp;→&nbsp; two syllables (not one)</div>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:600;margin:1rem 0 0.5rem;color:var(--ink-light);">⚠️ 4 Spelling Rules — 4 قواعد إملائية:</p>
+          <div class="spelling-grid">
+            <div class="spell-card">
+              <div class="spell-rule">Rule 1 — Most verbs: add -ed</div>
+              <div class="spell-ex">walk → walk<span>ed</span> &nbsp;|&nbsp; talk → talk<span>ed</span></div>
+              <div class="spell-ex">clean → clean<span>ed</span> &nbsp;|&nbsp; help → help<span>ed</span></div>
+            </div>
+            <div class="spell-card">
+              <div class="spell-rule">Rule 2 — Ends in -e: add -d only</div>
+              <div class="spell-ex">live → liv<span>ed</span> &nbsp;|&nbsp; love → lov<span>ed</span></div>
+              <div class="spell-ex">dance → danc<span>ed</span> &nbsp;|&nbsp; use → us<span>ed</span></div>
+            </div>
+            <div class="spell-card">
+              <div class="spell-rule">Rule 3 — Consonant + y → change y to i, add -ed</div>
+              <div class="spell-ex">study → studi<span>ed</span> &nbsp;|&nbsp; try → tri<span>ed</span></div>
+              <div class="spell-ex">carry → carri<span>ed</span> &nbsp;|&nbsp; cry → cri<span>ed</span></div>
+            </div>
+            <div class="spell-card">
+              <div class="spell-rule">Rule 4 — Short vowel + single consonant: double it, add -ed</div>
+              <div class="spell-ex">stop → stop<span>ped</span> &nbsp;|&nbsp; plan → plan<span>ned</span></div>
+              <div class="spell-ex">shop → shop<span>ped</span> &nbsp;|&nbsp; fit → fit<span>ted</span></div>
+            </div>
+          </div>
+
+          <div class="note-box" style="margin-top:1rem;">
+            <strong>🔍 Vowel + y → no change! (Rule 3 exception)</strong>
+            If the verb ends in <strong>vowel + y</strong>, just add -ed normally:<br/>
+            play → play<strong>ed</strong> &nbsp;|&nbsp; stay → stay<strong>ed</strong> &nbsp;|&nbsp; enjoy → enjoy<strong>ed</strong>
+          </div>
+
+          <table class="formula-table" style="margin-top:1rem;">
+            <thead><tr><th>Base Verb</th><th>Past Simple</th><th>Arabic</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>walk</td><td><span class="hl">walked</span></td><td>مشى</td><td>I walked to work.</td></tr>
+              <tr><td>watch</td><td><span class="hl">watched</span></td><td>شاهد</td><td>She watched TV.</td></tr>
+              <tr><td>study</td><td><span class="hl">studied</span></td><td>درس</td><td>He studied all night.</td></tr>
+              <tr><td>live</td><td><span class="hl">lived</span></td><td>عاش</td><td>They lived in Paris.</td></tr>
+              <tr><td>play</td><td><span class="hl">played</span></td><td>لعب</td><td>We played football.</td></tr>
+              <tr><td>stop</td><td><span class="hl">stopped</span></td><td>توقف</td><td>The car stopped.</td></tr>
+              <tr><td>try</td><td><span class="hl">tried</span></td><td>حاول</td><td>She tried her best.</td></tr>
+              <tr><td>visit</td><td><span class="hl">visited</span></td><td>زار</td><td>We visited our family.</td></tr>
+              <tr><td>work</td><td><span class="hl">worked</span></td><td>عمل</td><td>He worked late.</td></tr>
+              <tr><td>clean</td><td><span class="hl">cleaned</span></td><td>نظّف</td><td>She cleaned the house.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3.4 Irregular verbs -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>⚠️ Irregular Verbs — الأفعال الشاذة (must memorize!)</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Important</div>
+            <div class="rule-text">Irregular verbs do NOT follow the "-ed" rule. Each one has a unique past form that you must memorize.</div>
+            <div class="rule-ar">الأفعال الشاذة لا تتبع قاعدة "-ed" — يجب حفظ شكل الماضي لكل منها</div>
+          </div>
+          <div class="irregular-grid" style="margin-top:1rem;">
+            <div class="irr-card"><span class="irr-base">go</span><span class="irr-past">→ went</span><span class="irr-ar">ذهب</span></div>
+            <div class="irr-card"><span class="irr-base">eat</span><span class="irr-past">→ ate</span><span class="irr-ar">أكل</span></div>
+            <div class="irr-card"><span class="irr-base">drink</span><span class="irr-past">→ drank</span><span class="irr-ar">شرب</span></div>
+            <div class="irr-card"><span class="irr-base">have</span><span class="irr-past">→ had</span><span class="irr-ar">كان لديه</span></div>
+            <div class="irr-card"><span class="irr-base">see</span><span class="irr-past">→ saw</span><span class="irr-ar">رأى</span></div>
+            <div class="irr-card"><span class="irr-base">come</span><span class="irr-past">→ came</span><span class="irr-ar">أتى</span></div>
+            <div class="irr-card"><span class="irr-base">make</span><span class="irr-past">→ made</span><span class="irr-ar">صنع</span></div>
+            <div class="irr-card"><span class="irr-base">do</span><span class="irr-past">→ did</span><span class="irr-ar">فعل</span></div>
+            <div class="irr-card"><span class="irr-base">say</span><span class="irr-past">→ said</span><span class="irr-ar">قال</span></div>
+            <div class="irr-card"><span class="irr-base">give</span><span class="irr-past">→ gave</span><span class="irr-ar">أعطى</span></div>
+            <div class="irr-card"><span class="irr-base">take</span><span class="irr-past">→ took</span><span class="irr-ar">أخذ</span></div>
+            <div class="irr-card"><span class="irr-base">write</span><span class="irr-past">→ wrote</span><span class="irr-ar">كتب</span></div>
+            <div class="irr-card"><span class="irr-base">read</span><span class="irr-past">→ read*</span><span class="irr-ar">قرأ</span></div>
+            <div class="irr-card"><span class="irr-base">buy</span><span class="irr-past">→ bought</span><span class="irr-ar">اشترى</span></div>
+            <div class="irr-card"><span class="irr-base">bring</span><span class="irr-past">→ brought</span><span class="irr-ar">أحضر</span></div>
+            <div class="irr-card"><span class="irr-base">think</span><span class="irr-past">→ thought</span><span class="irr-ar">فكّر</span></div>
+            <div class="irr-card"><span class="irr-base">know</span><span class="irr-past">→ knew</span><span class="irr-ar">عرف</span></div>
+            <div class="irr-card"><span class="irr-base">get</span><span class="irr-past">→ got</span><span class="irr-ar">حصل</span></div>
+            <div class="irr-card"><span class="irr-base">find</span><span class="irr-past">→ found</span><span class="irr-ar">وجد</span></div>
+            <div class="irr-card"><span class="irr-base">leave</span><span class="irr-past">→ left</span><span class="irr-ar">غادر</span></div>
+            <div class="irr-card"><span class="irr-base">meet</span><span class="irr-past">→ met</span><span class="irr-ar">قابل</span></div>
+            <div class="irr-card"><span class="irr-base">run</span><span class="irr-past">→ ran</span><span class="irr-ar">ركض</span></div>
+            <div class="irr-card"><span class="irr-base">win</span><span class="irr-past">→ won</span><span class="irr-ar">فاز</span></div>
+            <div class="irr-card"><span class="irr-base">drive</span><span class="irr-past">→ drove</span><span class="irr-ar">قاد</span></div>
+            <div class="irr-card"><span class="irr-base">fly</span><span class="irr-past">→ flew</span><span class="irr-ar">طار</span></div>
+            <div class="irr-card"><span class="irr-base">feel</span><span class="irr-past">→ felt</span><span class="irr-ar">شعر</span></div>
+            <div class="irr-card"><span class="irr-base">sleep</span><span class="irr-past">→ slept</span><span class="irr-ar">نام</span></div>
+            <div class="irr-card"><span class="irr-base">keep</span><span class="irr-past">→ kept</span><span class="irr-ar">حافظ</span></div>
+            <div class="irr-card"><span class="irr-base">sit</span><span class="irr-past">→ sat</span><span class="irr-ar">جلس</span></div>
+            <div class="irr-card"><span class="irr-base">stand</span><span class="irr-past">→ stood</span><span class="irr-ar">وقف</span></div>
+            <div class="irr-card"><span class="irr-base">swim</span><span class="irr-past">→ swam</span><span class="irr-ar">سبح</span></div>
+            <div class="irr-card"><span class="irr-base">begin</span><span class="irr-past">→ began</span><span class="irr-ar">بدأ</span></div>
+            <div class="irr-card"><span class="irr-base">break</span><span class="irr-past">→ broke</span><span class="irr-ar">كسر</span></div>
+            <div class="irr-card"><span class="irr-base">hear</span><span class="irr-past">→ heard</span><span class="irr-ar">سمع</span></div>
+            <div class="irr-card"><span class="irr-base">fall</span><span class="irr-past">→ fell</span><span class="irr-ar">سقط</span></div>
+            <div class="irr-card"><span class="irr-base">forget</span><span class="irr-past">→ forgot</span><span class="irr-ar">نسي</span></div>
+            <div class="irr-card"><span class="irr-base">speak</span><span class="irr-past">→ spoke</span><span class="irr-ar">تكلّم</span></div>
+            <div class="irr-card"><span class="irr-base">tell</span><span class="irr-past">→ told</span><span class="irr-ar">أخبر</span></div>
+            <div class="irr-card"><span class="irr-base">put</span><span class="irr-past">→ put*</span><span class="irr-ar">وضع</span></div>
+            <div class="irr-card"><span class="irr-base">cut</span><span class="irr-past">→ cut*</span><span class="irr-ar">قطع</span></div>
+          </div>
+          <div class="note-box" style="margin-top:1rem;">
+            <strong>* Same form — no change!</strong>
+            "read", "put", "cut" look the same in base and past forms — but "read" in past is pronounced differently: /rɛd/ (like "red").
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.5 Was / Were -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>🔵 Was / Were — Past of "To Be"</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">The verb "To Be" has a special past form. "Am/Is" → <strong>was</strong>. "Are" → <strong>were</strong>.</div>
+            <div class="rule-ar">الفعل "To Be" له شكل خاص في الماضي: am/is تصبح "was" و are تصبح "were"</div>
+          </div>
+          <table class="formula-table" style="margin-top:1rem;">
+            <thead><tr><th>Subject</th><th>Present</th><th>Past</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>I</td><td>am</td><td><span class="hl">was</span></td><td>I was tired yesterday.</td></tr>
+              <tr><td>He / She / It</td><td>is</td><td><span class="hl">was</span></td><td>She was at home last night.</td></tr>
+              <tr><td>You</td><td>are</td><td><span class="hl">were</span></td><td>You were very kind.</td></tr>
+              <tr><td>We</td><td>are</td><td><span class="hl">were</span></td><td>We were in school.</td></tr>
+              <tr><td>They</td><td>are</td><td><span class="hl">were</span></td><td>They were happy.</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box" style="margin-top:0.75rem;">
+            <strong>Memory tip:</strong> <strong>WAS</strong> = singular (I, he, she, it) &nbsp;|&nbsp; <strong>WERE</strong> = plural (you, we, they)
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.6 Negative -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>❌ Negative Form — النفي</h3></div>
+        <div class="grammar-box-body">
+
+          <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;">For action verbs (go, eat, work...):</p>
+          <div class="formula-box">
+            <span class="f-key">Subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">did not (didn't)</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">BASE verb</span>
+            <span class="f-opt"> ← NOT past form!</span>
+          </div>
+
+          <p style="font-size:0.9rem;font-weight:600;margin:1rem 0 0.5rem;">For "To Be" (was/were):</p>
+          <div class="formula-box">
+            <span class="f-key">Subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">was not (wasn't) / were not (weren't)</span>
+          </div>
+
+          <ul class="examples-list" style="margin-top:1rem;">
+            <li><div><span class="example-en">I <span class="hl">didn't go</span> to work yesterday.</span><span class="example-ar">لم أذهب إلى العمل أمس</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">didn't eat</span> breakfast this morning.</span><span class="example-ar">هي لم تأكل الفطور هذا الصباح</span></div></li>
+            <li><div><span class="example-en">They <span class="hl">didn't watch</span> the match.</span><span class="example-ar">هم لم يشاهدوا المباراة</span></div></li>
+            <li><div><span class="example-en">He <span class="hl">wasn't</span> at school.</span><span class="example-ar">هو لم يكن في المدرسة</span></div></li>
+            <li><div><span class="example-en">We <span class="hl">weren't</span> ready.</span><span class="example-ar">نحن لم نكن مستعدين</span></div></li>
+          </ul>
+
+          <div style="margin-top:1rem;">
+            <p style="font-size:0.875rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">🚫 Most Common Mistake — أكثر خطأ شائع:</p>
+            <div class="mistake-row">
+              <div class="mistake-wrong">
+                <div class="mistake-label">✗ Wrong</div>
+                I didn't <strong>went</strong> to school.<br/>
+                She didn't <strong>ate</strong> breakfast.
+              </div>
+              <div class="mistake-right">
+                <div class="mistake-label">✓ Correct</div>
+                I didn't <strong>go</strong> to school.<br/>
+                She didn't <strong>eat</strong> breakfast.
+              </div>
+            </div>
+            <p style="font-size:0.8rem;color:var(--ink-light);margin-top:6px;">After "didn't", ALWAYS use the base (infinitive) form of the verb — never the past form!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.7 Questions -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>❓ Question Form — صيغة السؤال</h3></div>
+        <div class="grammar-box-body">
+
+          <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;">For action verbs (Yes/No questions):</p>
+          <div class="formula-box">
+            <span class="f-key">Did</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">BASE verb</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">?</span>
+          </div>
+
+          <p style="font-size:0.9rem;font-weight:600;margin:1rem 0 0.5rem;">For "To Be" questions:</p>
+          <div class="formula-box">
+            <span class="f-key">Was / Were</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">rest of sentence</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">?</span>
+          </div>
+
+          <p style="font-size:0.9rem;font-weight:600;margin:1rem 0 0.5rem;">WH- Questions (who, what, when, where, why, how):</p>
+          <div class="formula-box">
+            <span class="f-key">WH- word</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">did</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">BASE verb</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">?</span>
+          </div>
+
+          <table class="formula-table" style="margin-top:1rem;">
+            <thead><tr><th>Question</th><th>Short Answer (Yes)</th><th>Short Answer (No)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="hl">Did</span> you go to school?</td><td>Yes, I <span class="hl">did</span>.</td><td>No, I <span class="hl">didn't</span>.</td></tr>
+              <tr><td><span class="hl">Did</span> she call you?</td><td>Yes, she <span class="hl">did</span>.</td><td>No, she <span class="hl">didn't</span>.</td></tr>
+              <tr><td><span class="hl">Did</span> they win?</td><td>Yes, they <span class="hl">did</span>.</td><td>No, they <span class="hl">didn't</span>.</td></tr>
+              <tr><td><span class="hl">Was</span> he at home?</td><td>Yes, he <span class="hl">was</span>.</td><td>No, he <span class="hl">wasn't</span>.</td></tr>
+              <tr><td><span class="hl">Were</span> they happy?</td><td>Yes, they <span class="hl">were</span>.</td><td>No, they <span class="hl">weren't</span>.</td></tr>
+              <tr><td><span class="hl">Where</span> did you go?</td><td colspan="2">I went to the market.</td></tr>
+              <tr><td><span class="hl">What</span> did she eat?</td><td colspan="2">She ate rice and chicken.</td></tr>
+              <tr><td><span class="hl">When</span> did they arrive?</td><td colspan="2">They arrived at 8 pm.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3.8 Summary Table -->
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📊 Full Summary Table — جدول شامل</h3></div>
+        <div class="grammar-box-body">
+          <table class="formula-table">
+            <thead><tr><th>Form</th><th>Structure</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Affirmative</strong><br/><small>المثبت</small></td><td>Subject + <span class="hl">past verb</span></td><td>She <span class="hl">went</span> to the store.</td></tr>
+              <tr><td><strong>Negative</strong><br/><small>النفي</small></td><td>Subject + <span class="hl">didn't</span> + base verb</td><td>She <span class="hl">didn't go</span> to the store.</td></tr>
+              <tr><td><strong>Yes/No Question</strong><br/><small>سؤال نعم/لا</small></td><td><span class="hl">Did</span> + subject + base verb?</td><td><span class="hl">Did</span> she go to the store?</td></tr>
+              <tr><td><strong>WH- Question</strong><br/><small>سؤال معلومات</small></td><td>WH- + <span class="hl">did</span> + subject + base?</td><td><span class="hl">Where</span> did she go?</td></tr>
+              <tr><td><strong>Was / Were (+)</strong></td><td>Subject + <span class="hl">was/were</span></td><td>It <span class="hl">was</span> cold yesterday.</td></tr>
+              <tr><td><strong>Was / Were (−)</strong></td><td>Subject + <span class="hl">wasn't/weren't</span></td><td>They <span class="hl">weren't</span> ready.</td></tr>
+              <tr><td><strong>Was / Were (?)</strong></td><td><span class="hl">Was/Were</span> + subject...?</td><td><span class="hl">Was</span> he at home?</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 4. EXERCISES ===== -->
+    <section class="lesson-block" id="exercises">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>Practice Exercises</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 1 — Multiple Choice</div>
+        <div class="ex-question">What is the past form of "go"?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','ps_q1')">goed</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','ps_q1')">going</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb1','ps_q1')">went</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','ps_q1')">goes</button>
+        </div>
+        <div class="ex-feedback" id="fb1"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 2 — Fill in the Blank</div>
+        <div class="ex-question">Complete: "She ___ (study) for the exam last night."</div>
+        <div class="fill-hint">Hint: Regular verb ending in consonant + y → change y to i, add -ed</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f2" type="text" placeholder="past form of study"/>
+          <button class="check-btn" onclick="checkFill('f2','studied','fb2','ps_q2')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb2"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 3 — Multiple Choice</div>
+        <div class="ex-question">Which sentence is correct? (negative)</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','ps_q3')">He didn't went to school.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','ps_q3')">He not went to school.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb3','ps_q3')">He didn't go to school.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','ps_q3')">He goes not to school.</button>
+        </div>
+        <div class="ex-feedback" id="fb3"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 4 — Fill in the Blank</div>
+        <div class="ex-question">Complete: "___ you work last Saturday?" (question form)</div>
+        <div class="fill-hint">Hint: Use "Did" to start a past simple question</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f4" type="text" placeholder="Did / Was / Were"/>
+          <button class="check-btn" onclick="checkFill('f4','did','fb4','ps_q4')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb4"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 5 — Multiple Choice</div>
+        <div class="ex-question">Complete: "I ___ at home all day yesterday." (verb: be)</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','ps_q5')">am</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','ps_q5')">were</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb5','ps_q5')">was</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','ps_q5')">be</button>
+        </div>
+        <div class="ex-feedback" id="fb5"></div>
+      </div>
+
+      <div class="score-box" id="practice-score-box">
+        <div class="score-num" id="practice-score">—</div>
+        <div class="score-label" id="practice-label">Click to see your practice score</div>
+        <div class="nav-btns">
+          <button class="nav-btn nav-btn-light" onclick="showPracticeScore()">Calculate Practice Score</button>
+          <button class="nav-btn nav-btn-accent" onclick="scrollToSection('exam')">Continue to Big Exam →</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 5. BIG EXAM ===== -->
+    <section class="lesson-block" id="exam">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>Big Final Exam</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <div class="exam-section">
+        <div class="exam-header">
+          <div class="exam-badge">Final Exam</div>
+          <h2>Simple Past Tense — امتحان شامل</h2>
+          <p>20 questions covering everything you learned in this session. Good luck! 🎯</p>
+        </div>
+
+        <!-- SECTION A: Multiple Choice (Q1–Q8) -->
+        <div class="exam-section-title">Section A — Multiple Choice (8 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 1 / 20</div>
+          <div class="ex-question">What is the past form of "drink"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef1','ps_e1')">drinked</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef1','ps_e1')">drank</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef1','ps_e1')">drunk</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef1','ps_e1')">drinks</button>
+          </div>
+          <div class="ex-feedback" id="ef1"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 2 / 20</div>
+          <div class="ex-question">What is the past form of "help"? (regular verb)</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef2','ps_e2')">helpen</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef2','ps_e2')">holp</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef2','ps_e2')">helped</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef2','ps_e2')">helps</button>
+          </div>
+          <div class="ex-feedback" id="ef2"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 3 / 20</div>
+          <div class="ex-question">What is the past form of "fly"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef3','ps_e3')">flied</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef3','ps_e3')">flown</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef3','ps_e3')">flew</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef3','ps_e3')">flewed</button>
+          </div>
+          <div class="ex-feedback" id="ef3"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 4 / 20</div>
+          <div class="ex-question">Which sentence is grammatically CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef4','ps_e4')">She didn't ate dinner last night.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef4','ps_e4')">She didn't eat dinner last night.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef4','ps_e4')">She not eat dinner last night.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef4','ps_e4')">She doesn't ate dinner last night.</button>
+          </div>
+          <div class="ex-feedback" id="ef4"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 5 / 20</div>
+          <div class="ex-question">Which is the correct question form?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef5','ps_e5')">They did go to the party?</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef5','ps_e5')">Did they went to the party?</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef5','ps_e5')">Did they go to the party?</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef5','ps_e5')">Went they to the party?</button>
+          </div>
+          <div class="ex-feedback" id="ef5"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 6 / 20</div>
+          <div class="ex-question">Complete: "They ___ very happy at the party last night." (verb: be)</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef6','ps_e6')">was</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef6','ps_e6')">were</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef6','ps_e6')">are</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef6','ps_e6')">be</button>
+          </div>
+          <div class="ex-feedback" id="ef6"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 7 / 20</div>
+          <div class="ex-question">What is the correct spelling of the past form of "stop"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef7','ps_e7')">stoped</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef7','ps_e7')">stoppd</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef7','ps_e7')">stopped</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef7','ps_e7')">stopt</button>
+          </div>
+          <div class="ex-feedback" id="ef7"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 8 / 20</div>
+          <div class="ex-question">Which time expression is typically used with the Simple Past?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef8','ps_e8')">always</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef8','ps_e8')">tomorrow</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef8','ps_e8')">yesterday</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef8','ps_e8')">usually</button>
+          </div>
+          <div class="ex-feedback" id="ef8"></div>
+        </div>
+
+        <!-- SECTION B: Fill in the Blank (Q9–Q14) -->
+        <div class="exam-section-title">Section B — Fill in the Blank (6 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 9 / 20</div>
+          <div class="ex-question">Complete: "I ___ pizza for dinner last night." (eat)</div>
+          <div class="fill-hint">Irregular verb: eat → ?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef9" type="text" placeholder="past form of eat"/>
+            <button class="check-btn" onclick="checkFill('ef9','ate','ef9fb','ps_e9')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef9fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 10 / 20</div>
+          <div class="ex-question">Complete: "She didn't ___ on Sunday." (work)</div>
+          <div class="fill-hint">Hint: After "didn't", use the BASE (infinitive) form</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef10" type="text" placeholder="base form of work"/>
+            <button class="check-btn" onclick="checkFill('ef10','work','ef10fb','ps_e10')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef10fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 11 / 20</div>
+          <div class="ex-question">Complete: "Did she ___ to Paris last summer?" (travel)</div>
+          <div class="fill-hint">Hint: After "Did", use the BASE (infinitive) form</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef11" type="text" placeholder="base form of travel"/>
+            <button class="check-btn" onclick="checkFill('ef11','travel','ef11fb','ps_e11')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef11fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 12 / 20</div>
+          <div class="ex-question">Complete: "We ___ at school until 3pm." (be)</div>
+          <div class="fill-hint">Hint: Past of "are" → ?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef12" type="text" placeholder="was / were"/>
+            <button class="check-btn" onclick="checkFill('ef12','were','ef12fb','ps_e12')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef12fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 13 / 20</div>
+          <div class="ex-question">Complete: "They ___ a new car last month." (buy)</div>
+          <div class="fill-hint">Irregular verb: buy → ?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef13" type="text" placeholder="past form of buy"/>
+            <button class="check-btn" onclick="checkFill('ef13','bought','ef13fb','ps_e13')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef13fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 14 / 20</div>
+          <div class="ex-question">Complete: "He ___ all night for the exam." (study)</div>
+          <div class="fill-hint">Regular verb ending in consonant + y → change y→i, add -ed</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef14" type="text" placeholder="past form of study"/>
+            <button class="check-btn" onclick="checkFill('ef14','studied','ef14fb','ps_e14')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef14fb"></div>
+        </div>
+
+        <!-- SECTION C: Was / Were (Q15–Q17) -->
+        <div class="exam-section-title">Section C — Was / Were (3 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 15 / 20</div>
+          <div class="ex-question">Complete: "It ___ very cold last winter."</div>
+          <div class="fill-hint">Singular subject → was or were?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef15" type="text" placeholder="was / were"/>
+            <button class="check-btn" onclick="checkFill('ef15','was','ef15fb','ps_e15')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef15fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 16 / 20</div>
+          <div class="ex-question">Complete: "You ___ very kind to me at the meeting."</div>
+          <div class="fill-hint">"You" → was or were?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef16" type="text" placeholder="was / were"/>
+            <button class="check-btn" onclick="checkFill('ef16','were','ef16fb','ps_e16')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef16fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 17 / 20</div>
+          <div class="ex-question">Complete: "___ she at home when you called?"</div>
+          <div class="fill-hint">Question form with "she" → Was or Were?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef17" type="text" placeholder="Was / Were"/>
+            <button class="check-btn" onclick="checkFill('ef17','was','ef17fb','ps_e17')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef17fb"></div>
+        </div>
+
+        <!-- SECTION D: Choose the Correct Sentence (Q18–Q20) -->
+        <div class="exam-section-title">Section D — Choose the Correct Sentence (3 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 18 / 20</div>
+          <div class="ex-question">Which sentence is CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef18','ps_e18')">He didn't went to work yesterday.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef18','ps_e18')">He didn't go to work yesterday.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef18','ps_e18')">He not went to work yesterday.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef18','ps_e18')">He goes not to work yesterday.</button>
+          </div>
+          <div class="ex-feedback" id="ef18"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 19 / 20</div>
+          <div class="ex-question">Which is the CORRECT question?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef19','ps_e19')">You did see the match last night?</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef19','ps_e19')">Saw you the match last night?</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef19','ps_e19')">Did you saw the match last night?</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef19','ps_e19')">Did you see the match last night?</button>
+          </div>
+          <div class="ex-feedback" id="ef19"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 20 / 20</div>
+          <div class="ex-question">Choose the correct verb form: "Yesterday morning, I ___ up very early."</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef20','ps_e20')">wake</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef20','ps_e20')">woken</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef20','ps_e20')">woke</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef20','ps_e20')">wakes</button>
+          </div>
+          <div class="ex-feedback" id="ef20"></div>
+        </div>
+
+        <!-- Exam Score Box -->
+        <div class="exam-score-box" id="exam-score-box">
+          <div class="exam-score-num" id="exam-score-num">—</div>
+          <div class="exam-grade" id="exam-grade">Your Result</div>
+          <div class="exam-score-bar">
+            <div class="exam-score-fill" id="exam-score-fill"></div>
+          </div>
+          <div class="exam-score-label" id="exam-score-label">Answer all 20 questions, then click to see your final result.</div>
+          <div class="nav-btns" style="margin-top:1.25rem;">
+            <button class="nav-btn nav-btn-light" onclick="showExamScore()">Calculate My Score 🎯</button>
+            <a href="../index.html" class="nav-btn" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;">← Home</a>
+            <a href="level4.html" class="nav-btn nav-btn-accent">Level 4+ →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/lesson.js"></script>
+<script>
+function showPracticeScore() {
+  const keys = ['ps_q1','ps_q2','ps_q3','ps_q4','ps_q5'];
+  const s = calcScore(keys);
+  document.getElementById('practice-score').textContent = s + '/5';
+  const label = s === 5 ? 'Perfect! You are ready for the Big Exam! 🎉'
+    : s >= 3 ? 'Good job! Review any mistakes, then take the Big Exam.'
+    : 'Review the grammar section carefully before the exam.';
+  document.getElementById('practice-label').textContent = label;
+}
+
+function showExamScore() {
+  const keys = [
+    'ps_e1','ps_e2','ps_e3','ps_e4','ps_e5',
+    'ps_e6','ps_e7','ps_e8','ps_e9','ps_e10',
+    'ps_e11','ps_e12','ps_e13','ps_e14','ps_e15',
+    'ps_e16','ps_e17','ps_e18','ps_e19','ps_e20'
+  ];
+  const s = calcScore(keys);
+  const pct = Math.round((s / 20) * 100);
+
+  document.getElementById('exam-score-num').textContent = s + '/20';
+  document.getElementById('exam-score-fill').style.width = pct + '%';
+
+  let grade, label;
+  if (s >= 18) {
+    grade = '🏆 Excellent — ممتاز';
+    label = 'Outstanding! You have fully mastered the Simple Past Tense. You are ready for Level 4!';
+  } else if (s >= 15) {
+    grade = '⭐ Very Good — جيد جداً';
+    label = 'Great work! Minor mistakes — review the irregular verbs and spelling rules.';
+  } else if (s >= 12) {
+    grade = '👍 Good — جيد';
+    label = 'Good effort! Go back and review the grammar section, especially negatives and questions.';
+  } else if (s >= 8) {
+    grade = '📚 Needs Practice — يحتاج مراجعة';
+    label = 'Keep practicing! Re-read the full grammar guide and try again.';
+  } else {
+    grade = '🔁 Try Again — أعد المحاولة';
+    label = 'Don\'t give up! Read the lesson from the beginning and try the exam again.';
+  }
+
+  document.getElementById('exam-grade').textContent = grade;
+  document.getElementById('exam-score-label').textContent = label + ' (' + pct + '%)';
+}
+</script>
+</body>
+</html>

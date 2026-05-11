@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Level 2 — EnglishPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<style>
+  .progress-fill { background: var(--l2) !important; }
+  .block-num { background: var(--l2) !important; }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">English<span>Path</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="level1.html">Level 1</a>
+      <a href="level2.html" class="active">Level 2</a>
+      <a href="level3.html">Level 3</a>
+      <a href="level4.html">Level 4+</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-top">
+        <div class="lv-badge" style="background:var(--l2-light);color:var(--l2);">Level 2</div>
+        <div class="sidebar-title">Daily Life &amp; Actions</div>
+      </div>
+      <div class="timer-block">
+        <div class="timer-label">Session Time Left</div>
+        <div class="timer-display" id="timer">60:00</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <div class="agenda-list">
+        <h4>Session Agenda</h4>
+        <div class="agenda-item active" onclick="scrollToSection('warmup')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Warm-up &amp; Review</div><div class="ai-time">5 min — 0:00–5:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('vocabulary')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Vocabulary — Verbs</div><div class="ai-time">15 min — 5:00–20:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('grammar')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Grammar — Present Simple</div><div class="ai-time">20 min — 20:00–40:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exercises')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Practice Exercises</div><div class="ai-time">15 min — 40:00–55:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('quiz')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Review &amp; Quiz</div><div class="ai-time">5 min — 55:00–60:00</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <h1>Level 2 — Lesson 2</h1>
+      <p>Daily actions, routines, and the <strong>Simple Present Tense</strong>.</p>
+    </div>
+
+    <!-- WARM-UP -->
+    <section class="lesson-block" id="warmup">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>Warm-up &amp; Review</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>🔁 Quick Review from Level 1</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">am</span> a student.</span><span class="example-ar">أنا طالب</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">is</span> my sister.</span><span class="example-ar">هي أختي</span></div></li>
+            <li><div><span class="example-en">They <span class="hl">are</span> teachers.</span><span class="example-ar">هم معلمون</span></div></li>
+          </ul>
+          <div class="note-box" style="margin-top:1rem;background:#EBF5FF;border-color:#B5D4F4;color:var(--l2);">
+            <strong>Today's goal:</strong> Learn action verbs (eat, sleep, work...) and how to use them in sentences about habits and daily life.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- VOCABULARY -->
+    <section class="lesson-block" id="vocabulary">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>Vocabulary — Action Verbs</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+      <p style="margin-bottom:1rem;color:var(--ink-light);font-size:0.95rem;">These are common action verbs. Learn them with examples.</p>
+
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.75rem;">🏃 Daily Actions — الأفعال اليومية</h3>
+      <div class="vocab-grid" style="margin-bottom:1.5rem;">
+        <div class="vocab-card"><div class="vocab-en">Eat</div><div class="vocab-ar">يأكل</div><div class="vocab-example">"I eat breakfast."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Drink</div><div class="vocab-ar">يشرب</div><div class="vocab-example">"She drinks coffee."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Sleep</div><div class="vocab-ar">ينام</div><div class="vocab-example">"He sleeps at 10."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Work</div><div class="vocab-ar">يعمل</div><div class="vocab-example">"They work every day."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Study</div><div class="vocab-ar">يدرس</div><div class="vocab-example">"I study English."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Go</div><div class="vocab-ar">يذهب</div><div class="vocab-example">"We go to school."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Live</div><div class="vocab-ar">يعيش / يسكن</div><div class="vocab-example">"She lives in Beirut."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Like</div><div class="vocab-ar">يحب / يعجبه</div><div class="vocab-example">"I like football."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Have</div><div class="vocab-ar">يملك / لديه</div><div class="vocab-example">"He has a car."</div></div>
+        <div class="vocab-card"><div class="vocab-en">Come</div><div class="vocab-ar">يأتي</div><div class="vocab-example">"They come late."</div></div>
+      </div>
+
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.75rem;">⏰ Time Words — كلمات الوقت</h3>
+      <div class="vocab-grid">
+        <div class="vocab-card"><div class="vocab-en">Every day</div><div class="vocab-ar">كل يوم</div></div>
+        <div class="vocab-card"><div class="vocab-en">Always</div><div class="vocab-ar">دائماً</div></div>
+        <div class="vocab-card"><div class="vocab-en">Usually</div><div class="vocab-ar">عادةً</div></div>
+        <div class="vocab-card"><div class="vocab-en">Sometimes</div><div class="vocab-ar">أحياناً</div></div>
+        <div class="vocab-card"><div class="vocab-en">Never</div><div class="vocab-ar">أبداً</div></div>
+        <div class="vocab-card"><div class="vocab-en">In the morning</div><div class="vocab-ar">في الصباح</div></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- GRAMMAR -->
+    <section class="lesson-block" id="grammar">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>Grammar — Simple Present Tense</h2>
+        <span class="block-time">⏱ 20 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 When do we use it? — متى نستخدمه؟</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">We use the Simple Present to talk about: habits, routines, facts, and things that are always true.</div>
+            <div class="rule-ar">نستخدمه للعادات والروتين والحقائق العامة</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">drink</span> coffee every morning. (habit)</span><span class="example-ar">عادة يومية</span></div></li>
+            <li><div><span class="example-en">The sun <span class="hl">rises</span> in the east. (fact)</span><span class="example-ar">حقيقة</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">works</span> in a hospital. (routine)</span><span class="example-ar">روتين</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 How to form it — كيف نكوّنه</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Important Rule — قاعدة مهمة</div>
+            <div class="rule-text">With He / She / It → add <strong>"s"</strong> or <strong>"es"</strong> to the verb.</div>
+            <div class="rule-ar">مع He / She / It أضف "s" أو "es" للفعل</div>
+          </div>
+          <table class="formula-table" style="margin-bottom:1rem;">
+            <thead><tr><th>Subject</th><th>Verb (eat)</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>I</td><td><span class="hl">eat</span></td><td>I eat rice every day.</td></tr>
+              <tr><td>You</td><td><span class="hl">eat</span></td><td>You eat a lot of bread.</td></tr>
+              <tr><td>He / She / It</td><td><span class="hl">eat<strong>s</strong></span></td><td>She eat<strong>s</strong> fish on Friday.</td></tr>
+              <tr><td>We</td><td><span class="hl">eat</span></td><td>We eat together.</td></tr>
+              <tr><td>They</td><td><span class="hl">eat</span></td><td>They eat late at night.</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box">
+            <strong>Special spelling:</strong> go → go<strong>es</strong> | watch → watch<strong>es</strong> | study → studi<strong>es</strong>
+            <br/>بعض الأفعال لها إملاء خاص عند إضافة S
+          </div>
+        </div>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>❌ Negative — النفي</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">Use <strong>do not (don't)</strong> or <strong>does not (doesn't)</strong> before the verb.</div>
+            <div class="rule-ar">استخدم "don't" مع I/You/We/They و"doesn't" مع He/She/It</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">don't</span> eat meat.</span><span class="example-ar">لا آكل اللحم</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">doesn't</span> drink coffee.</span><span class="example-ar">هي لا تشرب القهوة</span></div></li>
+            <li><div><span class="example-en">They <span class="hl">don't</span> work on Sundays.</span><span class="example-ar">هم لا يعملون الأحد</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>❓ Questions — الأسئلة</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">Use <strong>Do</strong> or <strong>Does</strong> at the beginning of the question.</div>
+            <div class="rule-ar">استخدم "Do" أو "Does" في بداية السؤال</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en"><span class="hl">Do</span> you like coffee? — Yes, I do. / No, I don't.</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Does</span> she work here? — Yes, she does. / No, she doesn't.</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Do</span> they speak Arabic? — Yes, they do.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- EXERCISES -->
+    <section class="lesson-block" id="exercises">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>Practice Exercises</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 1 — Multiple Choice</div>
+        <div class="ex-question">What does "يدرس" mean in English?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l2_q1')">Sleep</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l2_q1')">Eat</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb1','l2_q1')">Study</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l2_q1')">Go</button>
+        </div>
+        <div class="ex-feedback" id="fb1"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 2 — Fill in the blank</div>
+        <div class="ex-question">Complete: "She ___ coffee every morning." (drink)</div>
+        <div class="fill-hint">Hint: Add "s" when using He/She/It</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f2" type="text" placeholder="your answer"/>
+          <button class="check-btn" onclick="checkFill('f2','drinks','fb2','l2_q2')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb2"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 3 — Multiple Choice</div>
+        <div class="ex-question">Which sentence is correct?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l2_q3')">He don't eat fish.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb3','l2_q3')">He doesn't eat fish.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l2_q3')">He not eat fish.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l2_q3')">He does not eats fish.</button>
+        </div>
+        <div class="ex-feedback" id="fb3"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 4 — Fill in the blank</div>
+        <div class="ex-question">Complete: "___ you like English?" (question form)</div>
+        <div class="fill-hint">Hint: Use "Do" or "Does"</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f4" type="text" placeholder="Do / Does"/>
+          <button class="check-btn" onclick="checkFill('f4','do','fb4','l2_q4')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb4"></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- QUIZ -->
+    <section class="lesson-block" id="quiz">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>Review &amp; Final Quiz</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📝 Quick Summary</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en">I/You/We/They + <span class="hl">verb</span> (no change)</span></div></li>
+            <li><div><span class="example-en">He/She/It + <span class="hl">verb+s/es</span></span></div></li>
+            <li><div><span class="example-en">Negative: <span class="hl">don't</span> (I/You/We/They) / <span class="hl">doesn't</span> (He/She/It)</span></div></li>
+            <li><div><span class="example-en">Question: <span class="hl">Do</span> / <span class="hl">Does</span> + subject + verb?</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Bonus Question</div>
+        <div class="ex-question">How do you say "هي لا تذهب إلى العمل يوم الأحد"?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l2_q5')">She don't go to work on Sunday.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb5','l2_q5')">She doesn't go to work on Sunday.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l2_q5')">She not goes to work on Sunday.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l2_q5')">She doesn't goes to work on Sunday.</button>
+        </div>
+        <div class="ex-feedback" id="fb5"></div>
+      </div>
+
+      <div class="score-box">
+        <div class="score-num" id="final-score">—</div>
+        <div class="score-label">Click to calculate your score</div>
+        <div class="nav-btns">
+          <button class="nav-btn nav-btn-light" onclick="showScore()">Calculate Score</button>
+          <a href="level1.html" class="nav-btn" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;">← Level 1</a>
+          <a href="level3.html" class="nav-btn nav-btn-accent">Next: Level 3 →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../js/lesson.js"></script>
+<script>
+function showScore() {
+  const keys = ['l2_q1','l2_q2','l2_q3','l2_q4','l2_q5'];
+  const s = calcScore(keys);
+  document.getElementById('final-score').textContent = s + '/5';
+  const label = s >= 4 ? 'Excellent! Ready for Level 3! 🎉' : s >= 3 ? 'Good! Review the grammar rules and continue.' : 'Review the lesson again, then try Level 3.';
+  document.querySelector('.score-label').textContent = label;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Level 4+ — EnglishPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<style>
+  .progress-fill { background: var(--l4) !important; }
+  .block-num { background: var(--l4) !important; }
+  .coming-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.5rem;
+    border-top: 4px solid var(--l4);
+  }
+  .coming-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--l4-light); color: var(--l4);
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 0.75rem;
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">English<span>Path</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="level1.html">Level 1</a>
+      <a href="level2.html">Level 2</a>
+      <a href="level3.html">Level 3</a>
+      <a href="level4.html" class="active">Level 4+</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-top">
+        <div class="lv-badge" style="background:var(--l4-light);color:var(--l4);">Level 4+</div>
+        <div class="sidebar-title">Advanced Conversations</div>
+      </div>
+      <div class="timer-block">
+        <div class="timer-label">Session Time Left</div>
+        <div class="timer-display" id="timer">60:00</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <div class="agenda-list">
+        <h4>Session Agenda</h4>
+        <div class="agenda-item active" onclick="scrollToSection('review')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Levels 1–3 Review</div><div class="ai-time">10 min — 0:00–10:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('perfect')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Present Perfect</div><div class="ai-time">15 min — 10:00–25:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('conditionals')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Conditionals (If)</div><div class="ai-time">15 min — 25:00–40:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('speaking')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Speaking Practice</div><div class="ai-time">10 min — 40:00–50:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('quiz')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Final Review</div><div class="ai-time">10 min — 50:00–60:00</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <h1>Level 4 — Advanced Topics</h1>
+      <p>Present Perfect, Conditionals, and real-life conversation practice.</p>
+    </div>
+
+    <!-- REVIEW -->
+    <section class="lesson-block" id="review">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>Levels 1–3 Review</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>🏆 What you have learned so far</h3></div>
+        <div class="grammar-box-body">
+          <table class="formula-table">
+            <thead><tr><th>Level</th><th>Grammar</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>Level 1</td><td>To Be (am/is/are)</td><td>I <span class="hl">am</span> a student.</td></tr>
+              <tr><td>Level 2</td><td>Present Simple</td><td>She <span class="hl">works</span> every day.</td></tr>
+              <tr><td>Level 3</td><td>Past Simple</td><td>They <span class="hl">went</span> to Beirut.</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box" style="margin-top:1rem;background:#FFF8F0;border-color:#FDEBD0;color:var(--l4);">
+            <strong>You are now ready for Level 4!</strong> This level introduces two very important grammar topics: Present Perfect and Conditionals.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- PRESENT PERFECT -->
+    <section class="lesson-block" id="perfect">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>Present Perfect</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 Structure: have/has + past participle</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">Use Present Perfect to talk about past experiences without a specific time, or things that affect the present.</div>
+            <div class="rule-ar">للحديث عن تجارب بدون وقت محدد، أو أشياء مؤثرة على الحاضر</div>
+          </div>
+          <table class="formula-table" style="margin-bottom:1rem;">
+            <thead><tr><th>Subject</th><th>Form</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>I / You / We / They</td><td><span class="hl">have</span> + past participle</td><td>I <span class="hl">have visited</span> Paris.</td></tr>
+              <tr><td>He / She / It</td><td><span class="hl">has</span> + past participle</td><td>She <span class="hl">has worked</span> here for 3 years.</td></tr>
+            </tbody>
+          </table>
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">have eaten</span> sushi before.</span><span class="example-ar">لقد أكلت سوشي من قبل (تجربة)</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">has never been</span> to London.</span><span class="example-ar">هي لم تذهب أبداً إلى لندن</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Have</span> you <span class="hl">seen</span> this film?</span><span class="example-ar">هل شاهدت هذا الفيلم؟</span></div></li>
+          </ul>
+          <div class="note-box">
+            <strong>Common words used with Present Perfect:</strong>
+            ever, never, already, just, yet, for, since
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 1 — Multiple Choice</div>
+        <div class="ex-question">Choose the correct sentence:</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l4_q1')">I have went to Turkey.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb1','l4_q1')">I have been to Turkey.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l4_q1')">I has gone to Turkey.</button>
+        </div>
+        <div class="ex-feedback" id="fb1"></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- CONDITIONALS -->
+    <section class="lesson-block" id="conditionals">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>Conditionals — "If" sentences</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 Type 1: Real / Possible Conditions</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Formula</div>
+            <div class="rule-text">If + Present Simple → will + verb</div>
+            <div class="rule-ar">إذا (حاضر) → سوف (مستقبل)</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en">If I <span class="hl">study</span>, I <span class="hl">will pass</span> the exam.</span><span class="example-ar">إذا درست، سأنجح في الامتحان</span></div></li>
+            <li><div><span class="example-en">If it <span class="hl">rains</span>, we <span class="hl">will stay</span> home.</span><span class="example-ar">إذا أمطرت، سنبقى في البيت</span></div></li>
+            <li><div><span class="example-en">If she <span class="hl">works</span> hard, she <span class="hl">will succeed</span>.</span><span class="example-ar">إذا عملت بجد، ستنجح</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 2 — Fill in the blank</div>
+        <div class="ex-question">Complete: "If you study hard, you ___ pass." </div>
+        <div class="fill-hint">Hint: Use "will"</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f2" type="text" placeholder="your answer"/>
+          <button class="check-btn" onclick="checkFill('f2','will','fb2','l4_q2')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb2"></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- SPEAKING PRACTICE -->
+    <section class="lesson-block" id="speaking">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>Speaking Practice — Real Conversations</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+
+      <p style="color:var(--ink-light);margin-bottom:1rem;font-size:0.95rem;">Read these conversations out loud. Practice them with a friend or say them alone!</p>
+
+      <div class="grammar-box" style="margin-bottom:1rem;">
+        <div class="grammar-box-head"><h3>🍽️ Conversation 1: Ordering Food</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en"><span class="hl">Waiter:</span> Good evening! What would you like?</span></div></li>
+            <li><div><span class="example-en"><span class="hl">You:</span> I would like a pizza and water, please.</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Waiter:</span> Of course. Anything else?</span></div></li>
+            <li><div><span class="example-en"><span class="hl">You:</span> No, thank you. That's all.</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📍 Conversation 2: Asking for Directions</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en"><span class="hl">You:</span> Excuse me, where is the nearest pharmacy?</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Person:</span> Go straight, then turn left. It's next to the school.</span></div></li>
+            <li><div><span class="example-en"><span class="hl">You:</span> Thank you very much!</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Person:</span> You're welcome. Have a good day!</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- QUIZ -->
+    <section class="lesson-block" id="quiz">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>Final Review &amp; Score</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 3 — Multiple Choice</div>
+        <div class="ex-question">Which sentence uses Present Perfect correctly?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l4_q3')">She have visited Dubai.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb3','l4_q3')">She has visited Dubai.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l4_q3')">She has visit Dubai.</button>
+        </div>
+        <div class="ex-feedback" id="fb3"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 4 — Multiple Choice</div>
+        <div class="ex-question">Complete: "If it rains, we ___ stay home."</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb4','l4_q4')">would</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb4','l4_q4')">will</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb4','l4_q4')">are</button>
+        </div>
+        <div class="ex-feedback" id="fb4"></div>
+      </div>
+
+      <div class="score-box">
+        <div class="score-num" id="final-score">—</div>
+        <div class="score-label">Click to calculate your final score</div>
+        <div class="nav-btns">
+          <button class="nav-btn nav-btn-light" onclick="showScore()">Calculate Score</button>
+          <a href="level3.html" class="nav-btn" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;">← Level 3</a>
+          <a href="../index.html" class="nav-btn nav-btn-accent">Back to Home 🏠</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../js/lesson.js"></script>
+<script>
+function showScore() {
+  const keys = ['l4_q1','l4_q2','l4_q3','l4_q4'];
+  const s = calcScore(keys);
+  document.getElementById('final-score').textContent = s + '/4';
+  const label = s >= 3 ? 'Amazing! You completed all 4 levels! 🎉🏆' : s >= 2 ? 'Great effort! Review Level 4 grammar.' : 'Keep going — practice makes perfect!';
+  document.querySelector('.score-label').textContent = label;
+}
+</script>
+</body>
+</html>

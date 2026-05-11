@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Level 3 — EnglishPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<style>
+  .progress-fill { background: var(--l3) !important; }
+  .block-num { background: var(--l3) !important; }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">English<span>Path</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="level1.html">Level 1</a>
+      <a href="level2.html">Level 2</a>
+      <a href="level3.html" class="active">Level 3</a>
+      <a href="level4.html">Level 4+</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-top">
+        <div class="lv-badge" style="background:var(--l3-light);color:var(--l3);">Level 3</div>
+        <div class="sidebar-title">Describing the World</div>
+      </div>
+      <div class="timer-block">
+        <div class="timer-label">Session Time Left</div>
+        <div class="timer-display" id="timer">60:00</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <div class="agenda-list">
+        <h4>Session Agenda</h4>
+        <div class="agenda-item active" onclick="scrollToSection('warmup')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Warm-up &amp; Review</div><div class="ai-time">5 min — 0:00–5:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('vocabulary')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Vocabulary — Adjectives</div><div class="ai-time">15 min — 5:00–20:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('grammar')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Grammar — Past Simple</div><div class="ai-time">20 min — 20:00–40:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exercises')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Practice Exercises</div><div class="ai-time">15 min — 40:00–55:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('quiz')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Review &amp; Quiz</div><div class="ai-time">5 min — 55:00–60:00</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <h1>Level 3 — Lesson 3</h1>
+      <p>Adjectives, comparisons, and the <strong>Past Simple Tense</strong>.</p>
+    </div>
+
+    <!-- WARM-UP -->
+    <section class="lesson-block" id="warmup">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>Warm-up &amp; Review</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>🔁 Quick Review from Level 2</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">eat</span> lunch every day.</span><span class="example-ar">عادة يومية</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">doesn't</span> drink coffee.</span><span class="example-ar">نفي - He/She/It</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Does</span> he work here?</span><span class="example-ar">سؤال</span></div></li>
+          </ul>
+          <div class="note-box" style="margin-top:1rem;background:#F5F0FF;border-color:#CFC9F8;color:var(--l3);">
+            <strong>Today's goal:</strong> Learn adjectives to describe things AND talk about the past using the Past Simple tense.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- VOCABULARY -->
+    <section class="lesson-block" id="vocabulary">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>Vocabulary — Adjectives</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+      <p style="margin-bottom:1rem;color:var(--ink-light);font-size:0.95rem;">Adjectives describe nouns (people, places, things). They come BEFORE the noun in English.</p>
+
+      <div class="note-box" style="margin-bottom:1rem;">
+        <strong>Word order tip:</strong> In English: <em>adjective + noun</em> → "a <strong>beautiful</strong> city" — not "a city beautiful".
+        <br/>في الإنجليزية الصفة تأتي قبل الاسم (عكس العربية أحياناً)
+      </div>
+
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:0.75rem;">✨ Describing People &amp; Things</h3>
+      <div class="vocab-grid" style="margin-bottom:1.5rem;">
+        <div class="vocab-card"><div class="vocab-en">Beautiful</div><div class="vocab-ar">جميل</div><div class="vocab-example">"a beautiful city"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Difficult</div><div class="vocab-ar">صعب</div><div class="vocab-example">"a difficult exam"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Important</div><div class="vocab-ar">مهم</div><div class="vocab-example">"an important meeting"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Interesting</div><div class="vocab-ar">مثير للاهتمام</div><div class="vocab-example">"an interesting book"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Expensive</div><div class="vocab-ar">غالي الثمن</div><div class="vocab-example">"an expensive car"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Friendly</div><div class="vocab-ar">ودود</div><div class="vocab-example">"a friendly person"</div></div>
+        <div class="vocab-card"><div class="vocab-en">Happy / Sad</div><div class="vocab-ar">سعيد / حزين</div></div>
+        <div class="vocab-card"><div class="vocab-en">Fast / Slow</div><div class="vocab-ar">سريع / بطيء</div></div>
+        <div class="vocab-card"><div class="vocab-en">Big / Small</div><div class="vocab-ar">كبير / صغير</div></div>
+        <div class="vocab-card"><div class="vocab-en">New / Old</div><div class="vocab-ar">جديد / قديم</div></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- GRAMMAR -->
+    <section class="lesson-block" id="grammar">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>Grammar — Past Simple Tense</h2>
+        <span class="block-time">⏱ 20 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 When do we use it?</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">Use Past Simple to talk about completed actions in the past — things that are finished.</div>
+            <div class="rule-ar">نستخدمه للأحداث المنتهية في الماضي</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">visited</span> Beirut last year.</span><span class="example-ar">زرت بيروت السنة الماضية</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">studied</span> for the exam yesterday.</span><span class="example-ar">هي درست للامتحان أمس</span></div></li>
+            <li><div><span class="example-en">They <span class="hl">watched</span> a film last night.</span><span class="example-ar">هم شاهدوا فيلماً الليلة الماضية</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 Regular Verbs — الأفعال المنتظمة</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">For regular verbs, add <strong>"-ed"</strong> to the end. The same form for ALL subjects.</div>
+            <div class="rule-ar">أضف "-ed" للفعل — نفس الشكل لجميع الضمائر</div>
+          </div>
+          <table class="formula-table" style="margin-bottom:1rem;">
+            <thead><tr><th>Base verb</th><th>Past Simple</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>watch</td><td><span class="hl">watched</span></td><td>I watched TV last night.</td></tr>
+              <tr><td>work</td><td><span class="hl">worked</span></td><td>She worked late yesterday.</td></tr>
+              <tr><td>study</td><td><span class="hl">studied</span></td><td>They studied all day.</td></tr>
+              <tr><td>live</td><td><span class="hl">lived</span></td><td>He lived in Paris.</td></tr>
+              <tr><td>visit</td><td><span class="hl">visited</span></td><td>We visited our family.</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box">
+            <strong>Special spelling:</strong> If the verb ends in "e" → just add "d": live→liv<strong>ed</strong>, love→lov<strong>ed</strong>
+            <br/>If it ends in consonant+y → change y to i and add "ed": study→studi<strong>ed</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>⚠️ Irregular Verbs — الأفعال الشاذة</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Important</div>
+            <div class="rule-text">Some verbs don't follow the "-ed" rule. You must memorize them!</div>
+            <div class="rule-ar">بعض الأفعال لا تتبع القاعدة — يجب حفظها</div>
+          </div>
+          <table class="formula-table">
+            <thead><tr><th>Base</th><th>Past</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>go</td><td><span class="hl">went</span></td><td>يذهب</td></tr>
+              <tr><td>eat</td><td><span class="hl">ate</span></td><td>يأكل</td></tr>
+              <tr><td>drink</td><td><span class="hl">drank</span></td><td>يشرب</td></tr>
+              <tr><td>have</td><td><span class="hl">had</span></td><td>يملك / لديه</td></tr>
+              <tr><td>see</td><td><span class="hl">saw</span></td><td>يرى</td></tr>
+              <tr><td>come</td><td><span class="hl">came</span></td><td>يأتي</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>❌ Negative &amp; ❓ Questions</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block">
+            <div class="rule-label">Rule</div>
+            <div class="rule-text">Use <strong>did not (didn't)</strong> for negatives and <strong>Did</strong> at the start for questions. The verb stays in base form!</div>
+            <div class="rule-ar">استخدم "didn't" للنفي و"Did" للأسئلة — الفعل يبقى بشكله الأصلي</div>
+          </div>
+          <ul class="examples-list">
+            <li><div><span class="example-en">I <span class="hl">didn't go</span> to school yesterday.</span><span class="example-ar">لم أذهب إلى المدرسة</span></div></li>
+            <li><div><span class="example-en">She <span class="hl">didn't eat</span> breakfast.</span><span class="example-ar">هي لم تأكل الفطور</span></div></li>
+            <li><div><span class="example-en"><span class="hl">Did</span> you study last night? — Yes, I did.</span><span class="example-ar">هل درست الليلة الماضية؟</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- EXERCISES -->
+    <section class="lesson-block" id="exercises">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>Practice Exercises</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 1 — Multiple Choice</div>
+        <div class="ex-question">Which adjective means "صعب"?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l3_q1')">Beautiful</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb1','l3_q1')">Difficult</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l3_q1')">Friendly</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','l3_q1')">Expensive</button>
+        </div>
+        <div class="ex-feedback" id="fb1"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 2 — Fill in the blank</div>
+        <div class="ex-question">Complete: "They ___ a movie yesterday." (watch)</div>
+        <div class="fill-hint">Hint: Regular verb — add "-ed"</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f2" type="text" placeholder="past form"/>
+          <button class="check-btn" onclick="checkFill('f2','watched','fb2','l3_q2')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb2"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 3 — Multiple Choice</div>
+        <div class="ex-question">What is the past form of "go"?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l3_q3')">goed</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l3_q3')">going</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb3','l3_q3')">went</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','l3_q3')">goes</button>
+        </div>
+        <div class="ex-feedback" id="fb3"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 4 — Fill in the blank</div>
+        <div class="ex-question">Complete: "She ___ eat breakfast this morning." (negative)</div>
+        <div class="fill-hint">Hint: Use "didn't"</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f4" type="text" placeholder="your answer"/>
+          <button class="check-btn" onclick="checkFill('f4','didn\'t','fb4','l3_q4')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb4"></div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- QUIZ -->
+    <section class="lesson-block" id="quiz">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>Review &amp; Final Quiz</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📝 Quick Summary</h3></div>
+        <div class="grammar-box-body">
+          <ul class="examples-list">
+            <li><div><span class="example-en">Adjectives come <span class="hl">before</span> the noun: "a <strong>beautiful</strong> city"</span></div></li>
+            <li><div><span class="example-en">Regular past: verb + <span class="hl">-ed</span> (watched, studied, worked)</span></div></li>
+            <li><div><span class="example-en">Irregular past: go→<span class="hl">went</span>, eat→<span class="hl">ate</span>, have→<span class="hl">had</span></span></div></li>
+            <li><div><span class="example-en">Negative: <span class="hl">didn't</span> + base verb</span></div></li>
+            <li><div><span class="example-en">Question: <span class="hl">Did</span> + subject + base verb?</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Bonus Question</div>
+        <div class="ex-question">How do you say "هو لم يشرب الماء"?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l3_q5')">He didn't drank water.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb5','l3_q5')">He didn't drink water.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l3_q5')">He not drank water.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','l3_q5')">He doesn't drink water.</button>
+        </div>
+        <div class="ex-feedback" id="fb5"></div>
+      </div>
+
+      <div class="score-box">
+        <div class="score-num" id="final-score">—</div>
+        <div class="score-label">Click to calculate your score</div>
+        <div class="nav-btns">
+          <button class="nav-btn nav-btn-light" onclick="showScore()">Calculate Score</button>
+          <a href="level2.html" class="nav-btn" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;">← Level 2</a>
+          <a href="level4.html" class="nav-btn nav-btn-accent">Next: Level 4+ →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../js/lesson.js"></script>
+<script>
+function showScore() {
+  const keys = ['l3_q1','l3_q2','l3_q3','l3_q4','l3_q5'];
+  const s = calcScore(keys);
+  document.getElementById('final-score').textContent = s + '/5';
+  const label = s >= 4 ? 'Outstanding! You\'re ready for Level 4! 🎉' : s >= 3 ? 'Good work! Review past tense and continue.' : 'Practice more before Level 4.';
+  document.querySelector('.score-label').textContent = label;
+}
+</script>
+</body>
+</html>
