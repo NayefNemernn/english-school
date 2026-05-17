@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Past Continuous Tense — EnglishPath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<style>
+  :root {
+    --pc: #1D4E89;
+    --pc-light: #DBE9FF;
+    --pc-accent: #2563EB;
+    --pc-mid: #1E40AF;
+  }
+  .progress-fill { background: var(--pc) !important; }
+  .block-num { background: var(--pc) !important; }
+
+  .exam-section {
+    background: #1A1A1A;
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-top: 1rem;
+  }
+  .exam-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 1.5rem;
+  }
+  .exam-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .exam-header p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+  .exam-badge {
+    display: inline-block;
+    background: var(--pc-accent);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+  }
+  .exam-section-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--pc-accent);
+    margin: 1.75rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .exam-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+  .exam-block {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .exam-block .ex-label { color: rgba(255,255,255,0.5); }
+  .exam-block .ex-question { color: #fff; }
+  .exam-block .ex-opt {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+  }
+  .exam-block .ex-opt:hover:not(:disabled) {
+    border-color: var(--pc-accent);
+    background: rgba(37,99,235,0.18);
+  }
+  .exam-block .fill-hint { color: rgba(255,255,255,0.45); }
+  .exam-block .fill-in {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+  .exam-block .fill-in:focus { border-color: var(--pc-accent); }
+  .exam-block .check-btn { background: var(--pc-accent); }
+  .exam-block .check-btn:hover { background: var(--pc-mid); }
+  .exam-block .ex-feedback.ok { color: #6EE7B7; }
+  .exam-block .ex-feedback.err { color: #FCA5A5; }
+  .exam-score-box {
+    background: rgba(255,255,255,0.08);
+    border: 2px solid rgba(37,99,235,0.4);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .exam-score-num {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--pc-accent);
+    font-family: 'DM Mono', monospace;
+  }
+  .exam-score-label { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 1rem; }
+  .exam-score-bar {
+    height: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 1rem 0;
+  }
+  .exam-score-fill {
+    height: 100%;
+    background: var(--pc-accent);
+    border-radius: 999px;
+    transition: width 1s ease;
+    width: 0%;
+  }
+  .exam-grade {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  /* PC-specific components */
+  .uses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 0.75rem;
+  }
+  .use-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .use-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pc-accent);
+    margin-bottom: 4px;
+  }
+  .use-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+  .use-ex { font-size: 0.8rem; color: var(--ink-muted); font-style: italic; }
+  .formula-box {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.95rem;
+    margin: 0.75rem 0;
+    letter-spacing: 0.02em;
+  }
+  .formula-box .f-plus { color: rgba(255,255,255,0.4); margin: 0 6px; }
+  .formula-box .f-key { color: #60A5FA; font-weight: 700; }
+  .formula-box .f-opt { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  .signal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.75rem; }
+  .signal-tag {
+    background: var(--pc-light);
+    border: 1px solid #BFDBFE;
+    color: var(--pc);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .spelling-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    margin-top: 0.75rem;
+  }
+  .spell-card {
+    background: var(--cream);
+    border-left: 3px solid var(--pc-accent);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+  }
+  .spell-rule { font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .spell-ex { color: var(--ink-muted); }
+  .spell-ex span { color: var(--pc-accent); font-weight: 600; }
+  .mistake-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 0.5rem;
+  }
+  .mistake-wrong {
+    background: #FDEBD0;
+    border: 1px solid #F6AE6A;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.875rem;
+    color: #C05621;
+  }
+  .mistake-right {
+    background: #D8F3DC;
+    border: 1px solid #B7E4C7;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.875rem;
+    color: #2D6A4F;
+  }
+  .mistake-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+
+  /* contrast box for PC vs PS */
+  .contrast-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 0.75rem;
+  }
+  .contrast-card {
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.875rem;
+  }
+  .contrast-ps {
+    background: #FFF8F0;
+    border: 1.5px solid #FDEBD0;
+  }
+  .contrast-ps .c-head { color: #C05621; font-weight: 700; margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .contrast-pc {
+    background: var(--pc-light);
+    border: 1.5px solid #BFDBFE;
+  }
+  .contrast-pc .c-head { color: var(--pc); font-weight: 700; margin-bottom: 8px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .c-ex { color: var(--ink); line-height: 1.8; }
+  .c-ex strong { color: var(--pc-accent); }
+  .contrast-ps .c-ex strong { color: #C05621; }
+
+  .was-were-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 0.75rem;
+  }
+  .ww-card {
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+  }
+  .ww-was { background: #DBE9FF; border: 2px solid var(--pc); }
+  .ww-were { background: #EDE9FE; border: 2px solid #7C3AED; }
+  .ww-title { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
+  .ww-was .ww-title { color: var(--pc); }
+  .ww-were .ww-title { color: #7C3AED; }
+  .ww-pronouns { font-size: 0.85rem; color: var(--ink-light); }
+
+  /* highlight specifically for PC accent in examples */
+  .hl-pc { color: var(--pc-accent); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">English<span>Path</span></a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="level1.html">Level 1</a>
+      <a href="level2.html">Level 2</a>
+      <a href="level3.html">Level 3</a>
+      <a href="level4.html">Level 4+</a>
+      <a href="past-simple.html">Past Simple</a>
+      <a href="past-continuous.html" class="active">Past Continuous</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-top">
+        <div class="lv-badge" style="background:#DBE9FF;color:#1D4E89;">Grammar</div>
+        <div class="sidebar-title">Past Continuous Tense</div>
+      </div>
+      <div class="timer-block">
+        <div class="timer-label">Session Time Left</div>
+        <div class="timer-display" id="timer">60:00</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <div class="agenda-list">
+        <h4>Session Agenda</h4>
+        <div class="agenda-item active" onclick="scrollToSection('warmup')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Introduction</div><div class="ai-time">5 min — 0:00–5:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('vocabulary')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Time Expressions &amp; Verbs</div><div class="ai-time">10 min — 5:00–15:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('grammar')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Grammar — Full Guide</div><div class="ai-time">20 min — 15:00–35:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exercises')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Practice Exercises</div><div class="ai-time">10 min — 35:00–45:00</div></div>
+        </div>
+        <div class="agenda-item" onclick="scrollToSection('exam')">
+          <div class="ai-dot"></div>
+          <div class="ai-info"><div class="ai-title">Big Final Exam</div><div class="ai-time">15 min — 45:00–60:00</div></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <h1>Past Continuous Tense — الماضي المستمر</h1>
+      <p>A complete, detailed guide to forming and using the <strong>Past Continuous Tense</strong> in English, with a full 20-question exam at the end.</p>
+    </div>
+
+    <!-- ===== 1. INTRODUCTION ===== -->
+    <section class="lesson-block" id="warmup">
+      <div class="block-header">
+        <div class="block-num">1</div>
+        <h2>Introduction</h2>
+        <span class="block-time">⏱ 5 min</span>
+      </div>
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📖 What will you learn today?</h3></div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;">This lesson covers <strong>everything</strong> about the Past Continuous Tense:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:0.9rem;">✅ What the Past Continuous is and how it differs from Simple Past</li>
+            <li style="font-size:0.9rem;">✅ When to use the Past Continuous (5 uses)</li>
+            <li style="font-size:0.9rem;">✅ Signal words (while, when, at that moment…)</li>
+            <li style="font-size:0.9rem;">✅ Was / Were — choosing the correct helper verb</li>
+            <li style="font-size:0.9rem;">✅ -ing spelling rules for all verb types (4 rules)</li>
+            <li style="font-size:0.9rem;">✅ Affirmative form</li>
+            <li style="font-size:0.9rem;">✅ Negative form (wasn't / weren't + -ing)</li>
+            <li style="font-size:0.9rem;">✅ Question form (Was/Were…?)</li>
+            <li style="font-size:0.9rem;">✅ Short answers</li>
+            <li style="font-size:0.9rem;">✅ Past Continuous vs Simple Past — the "when/while" pattern</li>
+            <li style="font-size:0.9rem;">✅ Common mistakes to avoid</li>
+            <li style="font-size:0.9rem;">✅ 5 practice exercises + 20-question Big Exam</li>
+          </ul>
+          <div class="note-box" style="margin-top:1rem;background:#DBE9FF;border-color:#BFDBFE;color:#1D4E89;">
+            <strong>💡 What is the Past Continuous?</strong>
+            The Past Continuous (also called the Past Progressive) describes an <strong>action that was in progress at a specific moment in the past</strong>. Think of it as a "movie" — an action that was playing/happening when something else occurred.
+            <br/><br/>
+            الماضي المستمر يصف حدثاً كان جارياً في لحظة معينة في الماضي — مثل فيلم كان يُعرض عندما حدث شيء آخر.
+            <br/><br/>
+            <strong>Compare:</strong><br/>
+            Simple Past → "I <strong>read</strong> a book." (completed action — قرأت كتاباً وانتهيت)<br/>
+            Past Continuous → "I <strong>was reading</strong> a book." (action in progress — كنت أقرأ كتاباً [في تلك اللحظة])
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 2. VOCABULARY ===== -->
+    <section class="lesson-block" id="vocabulary">
+      <div class="block-header">
+        <div class="block-num">2</div>
+        <h2>Time Expressions &amp; Useful Verbs</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>⏰ Signal Words — كلمات تشير إلى الماضي المستمر</h3></div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--ink-light);">These words are strong clues that a Past Continuous tense is needed. Memorise them!</p>
+          <div class="signal-tags">
+            <span class="signal-tag">while (بينما)</span>
+            <span class="signal-tag">when (عندما)</span>
+            <span class="signal-tag">as (بينما)</span>
+            <span class="signal-tag">at that moment (في تلك اللحظة)</span>
+            <span class="signal-tag">at ... o'clock yesterday</span>
+            <span class="signal-tag">at this time yesterday (في هذا الوقت أمس)</span>
+            <span class="signal-tag">all day (طوال اليوم)</span>
+            <span class="signal-tag">all morning / all night</span>
+            <span class="signal-tag">from ... to ... (من ... إلى ...)</span>
+            <span class="signal-tag">still (لا يزال)</span>
+          </div>
+
+          <div class="note-box" style="margin-top:1rem;background:#DBE9FF;border-color:#BFDBFE;color:#1D4E89;">
+            <strong>📌 "while" vs "when"</strong><br/>
+            <strong>while</strong> → usually followed by Past Continuous: "While I <span style="color:var(--pc-accent);font-weight:700;">was sleeping</span>, the phone rang."<br/>
+            <strong>when</strong> → usually followed by Simple Past: "I was sleeping when the phone <span style="color:var(--pc-accent);font-weight:700;">rang</span>."<br/><br/>
+            Both sentences have the SAME meaning — only the word order changes.
+          </div>
+
+          <div class="note-box" style="margin-top:0.75rem;">
+            <strong>📌 Examples with signal words:</strong>
+            <br/>I <span style="color:var(--pc-accent);font-weight:600;">was watching</span> TV <strong>at 9pm last night</strong>.
+            <br/><strong>While</strong> she <span style="color:var(--pc-accent);font-weight:600;">was cooking</span>, he arrived.
+            <br/>They <span style="color:var(--pc-accent);font-weight:600;">were studying</span> <strong>all morning</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📚 Useful Action Verbs (Base Form)</h3></div>
+        <div class="grammar-box-body">
+          <p style="margin-bottom:0.75rem;font-size:0.9rem;color:var(--ink-light);">These verbs are commonly used in the Past Continuous. We will learn their -ing forms in the Grammar section.</p>
+          <div class="vocab-grid">
+            <div class="vocab-card"><div class="vocab-en">sleep</div><div class="vocab-ar">ينام</div><div class="vocab-example">sleeping</div></div>
+            <div class="vocab-card"><div class="vocab-en">run</div><div class="vocab-ar">يركض</div><div class="vocab-example">running</div></div>
+            <div class="vocab-card"><div class="vocab-en">cook</div><div class="vocab-ar">يطبخ</div><div class="vocab-example">cooking</div></div>
+            <div class="vocab-card"><div class="vocab-en">study</div><div class="vocab-ar">يدرس</div><div class="vocab-example">studying</div></div>
+            <div class="vocab-card"><div class="vocab-en">work</div><div class="vocab-ar">يعمل</div><div class="vocab-example">working</div></div>
+            <div class="vocab-card"><div class="vocab-en">write</div><div class="vocab-ar">يكتب</div><div class="vocab-example">writing</div></div>
+            <div class="vocab-card"><div class="vocab-en">read</div><div class="vocab-ar">يقرأ</div><div class="vocab-example">reading</div></div>
+            <div class="vocab-card"><div class="vocab-en">drive</div><div class="vocab-ar">يقود</div><div class="vocab-example">driving</div></div>
+            <div class="vocab-card"><div class="vocab-en">talk</div><div class="vocab-ar">يتحدث</div><div class="vocab-example">talking</div></div>
+            <div class="vocab-card"><div class="vocab-en">swim</div><div class="vocab-ar">يسبح</div><div class="vocab-example">swimming</div></div>
+            <div class="vocab-card"><div class="vocab-en">sit</div><div class="vocab-ar">يجلس</div><div class="vocab-example">sitting</div></div>
+            <div class="vocab-card"><div class="vocab-en">play</div><div class="vocab-ar">يلعب</div><div class="vocab-example">playing</div></div>
+          </div>
+          <div class="note-box" style="margin-top:0.75rem;background:#FFF8F0;border-color:#FDEBD0;color:#C05621;">
+            <strong>⚠️ Stative Verbs — أفعال الحالة (cannot use -ing)</strong>
+            Some verbs describe a STATE (not an action) and are NOT normally used in continuous tenses. Common stative verbs: <strong>know, believe, understand, like, love, hate, want, need, see, hear, seem, appear, belong, own, have (= possess)</strong>.<br/>
+            <br/>
+            ✗ "I was knowing the answer." → ✓ "I <strong>knew</strong> the answer." (Simple Past)<br/>
+            ✗ "She was liking the movie." → ✓ "She <strong>liked</strong> the movie." (Simple Past)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 3. GRAMMAR ===== -->
+    <section class="lesson-block" id="grammar">
+      <div class="block-header">
+        <div class="block-num">3</div>
+        <h2>Grammar — The Complete Guide</h2>
+        <span class="block-time">⏱ 20 min</span>
+      </div>
+
+      <!-- 3.1 When to use -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📐 When do we use Past Continuous? — متى نستخدمه؟</h3></div>
+        <div class="grammar-box-body">
+          <div class="uses-grid">
+            <div class="use-card">
+              <div class="use-num">Use 1</div>
+              <div class="use-title">Action in progress at a past moment</div>
+              <div class="use-ex">"At 8pm last night, I <span style="color:var(--pc-accent)">was watching</span> TV."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">حدث كان جارياً في لحظة معينة بالماضي</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 2</div>
+              <div class="use-title">Interrupted action (when + Simple Past)</div>
+              <div class="use-ex">"I <span style="color:var(--pc-accent)">was reading</span> when she called."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">حدث كان مستمراً ثم قاطعه حدث آخر</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 3</div>
+              <div class="use-title">Two simultaneous actions (while)</div>
+              <div class="use-ex">"While she <span style="color:var(--pc-accent)">was cooking</span>, he <span style="color:var(--pc-accent)">was cleaning</span>."</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">حدثان كانا يجريان في نفس الوقت</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 4</div>
+              <div class="use-title">Background in stories / narratives</div>
+              <div class="use-ex">"The sun <span style="color:var(--pc-accent)">was shining</span>. Birds <span style="color:var(--pc-accent)">were singing</span>…"</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">وصف الخلفية في القصص</div>
+            </div>
+            <div class="use-card">
+              <div class="use-num">Use 5</div>
+              <div class="use-title">Expressing annoyance (always/constantly)</div>
+              <div class="use-ex">"He <span style="color:var(--pc-accent)">was always interrupting</span> me!"</div>
+              <div style="font-size:0.78rem;color:var(--ink-muted);margin-top:4px;">التعبير عن الانزعاج من عادة متكررة</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.2 Was / Were -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>🔵 Was / Were — Choosing the Right Helper Verb</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block" style="border-color:var(--pc-accent);">
+            <div class="rule-label" style="color:var(--pc-accent);">Core Rule</div>
+            <div class="rule-text">Past Continuous always uses <strong>was</strong> or <strong>were</strong> as a helper verb + the <strong>-ing</strong> form of the main verb.</div>
+            <div class="rule-ar">الماضي المستمر يستخدم دائماً was أو were كفعل مساعد + المصدر مضافاً إليه -ing</div>
+          </div>
+
+          <div class="was-were-table">
+            <div class="ww-card ww-was">
+              <div class="ww-title">WAS</div>
+              <div class="ww-pronouns">I &nbsp;•&nbsp; He &nbsp;•&nbsp; She &nbsp;•&nbsp; It<br/><small style="color:var(--pc);">(singular subjects)</small></div>
+            </div>
+            <div class="ww-card ww-were">
+              <div class="ww-title" style="color:#7C3AED;">WERE</div>
+              <div class="ww-pronouns">You &nbsp;•&nbsp; We &nbsp;•&nbsp; They<br/><small style="color:#7C3AED;">(plural subjects)</small></div>
+            </div>
+          </div>
+
+          <table class="formula-table" style="margin-top:1rem;">
+            <thead><tr><th>Subject</th><th>Helper verb</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>I</td><td><span class="hl-pc">was</span></td><td>I <span class="hl-pc">was</span> sleeping.</td></tr>
+              <tr><td>He / She / It</td><td><span class="hl-pc">was</span></td><td>She <span class="hl-pc">was</span> cooking.</td></tr>
+              <tr><td>You</td><td><span class="hl-pc">were</span></td><td>You <span class="hl-pc">were</span> talking.</td></tr>
+              <tr><td>We</td><td><span class="hl-pc">were</span></td><td>We <span class="hl-pc">were</span> studying.</td></tr>
+              <tr><td>They</td><td><span class="hl-pc">were</span></td><td>They <span class="hl-pc">were</span> running.</td></tr>
+            </tbody>
+          </table>
+          <div class="note-box" style="margin-top:0.75rem;background:#DBE9FF;border-color:#BFDBFE;color:#1D4E89;">
+            <strong>Memory tip:</strong> Same rule as Simple Past "To Be":<br/>
+            <strong>WAS</strong> = I, he, she, it (singular) &nbsp;|&nbsp; <strong>WERE</strong> = you, we, they (plural)
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.3 -ing Spelling Rules -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>📝 -ing Spelling Rules — قواعد إضافة -ing</h3></div>
+        <div class="grammar-box-body">
+          <div class="rule-block" style="border-color:var(--pc-accent);">
+            <div class="rule-label" style="color:var(--pc-accent);">General Rule</div>
+            <div class="rule-text">Add <strong>-ing</strong> to the base form of the verb — but watch out for spelling changes!</div>
+            <div class="rule-ar">نضيف -ing للفعل الأصلي — لكن انتبه للتغييرات الإملائية!</div>
+          </div>
+
+          <!-- Vowels / Consonants reminder -->
+          <div style="margin:1rem 0;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:10px;padding:14px;">
+              <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#1D4E89;margin-bottom:8px;">🔤 Vowel Letters</div>
+              <div style="display:flex;gap:10px;justify-content:center;margin-bottom:8px;">
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">A</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">E</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">I</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">O</span>
+                <span style="font-size:1.6rem;font-weight:700;color:#1D4E89;font-family:'DM Mono',monospace;">U</span>
+              </div>
+              <div style="font-size:0.8rem;color:#1D4E89;">Only these 5 letters are vowels.</div>
+            </div>
+            <div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:10px;padding:14px;">
+              <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#C05621;margin-bottom:8px;">🔠 Consonant Letters</div>
+              <div style="font-size:0.82rem;color:#C05621;margin-bottom:6px;line-height:1.7;font-family:'DM Mono',monospace;letter-spacing:0.05em;">B C D F G H J K L M<br/>N P Q R S T V W X Y Z</div>
+              <div style="font-size:0.8rem;color:#C05621;">All letters that are <strong>NOT</strong> vowels.</div>
+            </div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:600;margin:1rem 0 0.5rem;color:var(--ink-light);">⚠️ 4 Spelling Rules for -ing:</p>
+          <div class="spelling-grid">
+            <div class="spell-card">
+              <div class="spell-rule">Rule 1 — Most verbs: just add -ing</div>
+              <div class="spell-ex">work → work<span>ing</span> &nbsp;|&nbsp; eat → eat<span>ing</span></div>
+              <div class="spell-ex">talk → talk<span>ing</span> &nbsp;|&nbsp; play → play<span>ing</span></div>
+              <div class="spell-ex">cook → cook<span>ing</span> &nbsp;|&nbsp; read → read<span>ing</span></div>
+            </div>
+            <div class="spell-card">
+              <div class="spell-rule">Rule 2 — Ends in silent -e: drop -e, add -ing</div>
+              <div class="spell-ex">write → writ<span>ing</span> &nbsp;|&nbsp; drive → driv<span>ing</span></div>
+              <div class="spell-ex">dance → danc<span>ing</span> &nbsp;|&nbsp; live → liv<span>ing</span></div>
+              <div class="spell-ex">take → tak<span>ing</span> &nbsp;|&nbsp; use → us<span>ing</span></div>
+            </div>
+            <div class="spell-card">
+              <div class="spell-rule">Rule 3 — Short vowel + single consonant: double it, add -ing</div>
+              <div class="spell-ex">run → run<span>ning</span> &nbsp;|&nbsp; sit → sit<span>ting</span></div>
+              <div class="spell-ex">swim → swim<span>ming</span> &nbsp;|&nbsp; stop → stop<span>ping</span></div>
+              <div class="spell-ex">get → get<span>ting</span> &nbsp;|&nbsp; cut → cut<span>ting</span></div>
+            </div>
+            <div class="spell-card">
+              <div class="spell-rule">Rule 4 — Ends in -ie: change -ie to -y, add -ing</div>
+              <div class="spell-ex">lie → l<span>ying</span> &nbsp;|&nbsp; die → d<span>ying</span></div>
+              <div class="spell-ex">tie → t<span>ying</span></div>
+            </div>
+          </div>
+
+          <div class="note-box" style="margin-top:1rem;background:#DBE9FF;border-color:#BFDBFE;color:#1D4E89;">
+            <strong>🔍 Rule 3 — How to identify "short vowel + single consonant":</strong><br/>
+            Look at the last 3 letters. If the pattern is: <strong>consonant → vowel → consonant</strong> (CVC) in a one-syllable word, double the final consonant.<br/><br/>
+            ✓ r-u-<strong>n</strong> (CVC) → runn<strong>ing</strong><br/>
+            ✓ s-i-<strong>t</strong> (CVC) → sitt<strong>ing</strong><br/>
+            ✗ r-e-<strong>a-d</strong> (ends in 2 consonant-like letters after vowel cluster) → read<strong>ing</strong> (no double)
+          </div>
+
+          <table class="formula-table" style="margin-top:1rem;">
+            <thead><tr><th>Base Verb</th><th>-ing Form</th><th>Rule Used</th><th>Full Example</th></tr></thead>
+            <tbody>
+              <tr><td>work</td><td><span class="hl-pc">working</span></td><td>Rule 1</td><td>I was working all day.</td></tr>
+              <tr><td>study</td><td><span class="hl-pc">studying</span></td><td>Rule 1</td><td>She was studying English.</td></tr>
+              <tr><td>write</td><td><span class="hl-pc">writing</span></td><td>Rule 2 (drop -e)</td><td>He was writing a letter.</td></tr>
+              <tr><td>drive</td><td><span class="hl-pc">driving</span></td><td>Rule 2 (drop -e)</td><td>She was driving home.</td></tr>
+              <tr><td>run</td><td><span class="hl-pc">running</span></td><td>Rule 3 (double n)</td><td>They were running fast.</td></tr>
+              <tr><td>sit</td><td><span class="hl-pc">sitting</span></td><td>Rule 3 (double t)</td><td>He was sitting quietly.</td></tr>
+              <tr><td>swim</td><td><span class="hl-pc">swimming</span></td><td>Rule 3 (double m)</td><td>We were swimming in the pool.</td></tr>
+              <tr><td>lie</td><td><span class="hl-pc">lying</span></td><td>Rule 4 (-ie → -y)</td><td>The dog was lying on the floor.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3.4 Affirmative -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>✅ Affirmative Form — الجملة المثبتة</h3></div>
+        <div class="grammar-box-body">
+          <div class="formula-box">
+            <span class="f-key">Subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">was / were</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">verb-ing</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">rest of sentence</span>
+          </div>
+
+          <ul class="examples-list" style="margin-top:0.75rem;">
+            <li><div><span class="example-en">I <span class="hl-pc">was sleeping</span> when you called.</span><span class="example-ar">كنت نائماً عندما اتصلت</span></div></li>
+            <li><div><span class="example-en">He <span class="hl-pc">was cooking</span> dinner at 7pm.</span><span class="example-ar">كان يطبخ العشاء الساعة السابعة</span></div></li>
+            <li><div><span class="example-en">She <span class="hl-pc">was studying</span> all morning.</span><span class="example-ar">كانت تدرس طوال الصباح</span></div></li>
+            <li><div><span class="example-en">We <span class="hl-pc">were watching</span> a film when the lights went out.</span><span class="example-ar">كنا نشاهد فيلماً عندما انقطع الضوء</span></div></li>
+            <li><div><span class="example-en">They <span class="hl-pc">were playing</span> football while it was raining.</span><span class="example-ar">كانوا يلعبون كرة القدم بينما كانت تمطر</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3.5 Negative -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>❌ Negative Form — النفي</h3></div>
+        <div class="grammar-box-body">
+          <div class="formula-box">
+            <span class="f-key">Subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">was not (wasn't) / were not (weren't)</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">verb-ing</span>
+          </div>
+
+          <ul class="examples-list" style="margin-top:1rem;">
+            <li><div><span class="example-en">I <span class="hl-pc">wasn't sleeping</span> — I was reading.</span><span class="example-ar">لم أكن نائماً — كنت أقرأ</span></div></li>
+            <li><div><span class="example-en">She <span class="hl-pc">wasn't working</span> at that time.</span><span class="example-ar">هي لم تكن تعمل في ذلك الوقت</span></div></li>
+            <li><div><span class="example-en">They <span class="hl-pc">weren't listening</span> to the teacher.</span><span class="example-ar">هم لم يكونوا يستمعون للمعلم</span></div></li>
+            <li><div><span class="example-en">We <span class="hl-pc">weren't expecting</span> visitors.</span><span class="example-ar">نحن لم نكن نتوقع زواراً</span></div></li>
+          </ul>
+
+          <div style="margin-top:1rem;">
+            <p style="font-size:0.875rem;font-weight:700;color:var(--ink);margin-bottom:0.5rem;">🚫 Common Mistake — خطأ شائع:</p>
+            <div class="mistake-row">
+              <div class="mistake-wrong">
+                <div class="mistake-label">✗ Wrong</div>
+                I <strong>didn't sleeping</strong>.<br/>
+                She <strong>wasn't study</strong>.
+              </div>
+              <div class="mistake-right">
+                <div class="mistake-label">✓ Correct</div>
+                I <strong>wasn't sleeping</strong>.<br/>
+                She <strong>wasn't studying</strong>.
+              </div>
+            </div>
+            <p style="font-size:0.8rem;color:var(--ink-light);margin-top:6px;">For negatives, use <strong>wasn't/weren't</strong> (NOT "didn't") + the <strong>-ing</strong> form (NOT the base form).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.6 Questions -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>❓ Question Form — صيغة السؤال</h3></div>
+        <div class="grammar-box-body">
+
+          <p style="font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;">Yes/No Questions:</p>
+          <div class="formula-box">
+            <span class="f-key">Was / Were</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">verb-ing</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">?</span>
+          </div>
+
+          <p style="font-size:0.9rem;font-weight:600;margin:1rem 0 0.5rem;">WH- Questions (who, what, when, where, why, how):</p>
+          <div class="formula-box">
+            <span class="f-key">WH- word</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">was / were</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">subject</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">verb-ing</span>
+            <span class="f-plus">+</span>
+            <span class="f-key">?</span>
+          </div>
+
+          <table class="formula-table" style="margin-top:1rem;">
+            <thead><tr><th>Question</th><th>Short Answer (Yes)</th><th>Short Answer (No)</th></tr></thead>
+            <tbody>
+              <tr><td><span class="hl-pc">Was</span> he sleeping?</td><td>Yes, he <span class="hl-pc">was</span>.</td><td>No, he <span class="hl-pc">wasn't</span>.</td></tr>
+              <tr><td><span class="hl-pc">Was</span> she working late?</td><td>Yes, she <span class="hl-pc">was</span>.</td><td>No, she <span class="hl-pc">wasn't</span>.</td></tr>
+              <tr><td><span class="hl-pc">Were</span> you listening?</td><td>Yes, I <span class="hl-pc">was</span>.</td><td>No, I <span class="hl-pc">wasn't</span>.</td></tr>
+              <tr><td><span class="hl-pc">Were</span> they playing?</td><td>Yes, they <span class="hl-pc">were</span>.</td><td>No, they <span class="hl-pc">weren't</span>.</td></tr>
+              <tr><td><span class="hl-pc">What</span> were you doing?</td><td colspan="2">I was reading a book.</td></tr>
+              <tr><td><span class="hl-pc">Where</span> was she going?</td><td colspan="2">She was going to the market.</td></tr>
+              <tr><td><span class="hl-pc">Why</span> were they running?</td><td colspan="2">They were running to catch the bus.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="note-box" style="margin-top:0.75rem;background:#DBE9FF;border-color:#BFDBFE;color:#1D4E89;">
+            <strong>📌 Short Answer reminder:</strong><br/>
+            "Were you studying?" → "Yes, I <strong>was</strong>." (NOT "Yes, I were.")<br/>
+            "Was he cooking?" → "No, he <strong>wasn't</strong>." (NOT "No, he weren't.")
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.7 PC vs Simple Past — when/while -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>⚡ Past Continuous vs Simple Past — الفرق الأساسي</h3></div>
+        <div class="grammar-box-body">
+
+          <div class="rule-block" style="border-color:var(--pc-accent);">
+            <div class="rule-label" style="color:var(--pc-accent);">The Key Pattern — النمط الأساسي</div>
+            <div class="rule-text">When one action was <strong>in progress</strong> (Past Continuous) and another action <strong>interrupted it</strong> (Simple Past), we use BOTH tenses together.</div>
+            <div class="rule-ar">عندما كان حدث ما مستمراً (ماضي مستمر) وقاطعه حدث آخر مفاجئ (ماضي بسيط)، نستخدم الزمنين معاً.</div>
+          </div>
+
+          <div style="background:#F0F9FF;border:1.5px solid #BAE6FD;border-radius:10px;padding:1rem;margin:1rem 0;">
+            <p style="font-size:0.85rem;font-weight:700;color:#0369A1;margin-bottom:10px;">📊 The Timeline Concept — مفهوم الخط الزمني:</p>
+            <div style="font-family:'DM Mono',monospace;font-size:0.82rem;color:#0369A1;background:#E0F2FE;border-radius:8px;padding:10px;line-height:2;">
+              &nbsp;&nbsp;Past ←————————————————→ Now<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[~~~ was reading ~~~]<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ rang (Simple Past)<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"I was reading when the phone rang."
+            </div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin-bottom:0.5rem;">Two sentence patterns — نمطان للجملة:</p>
+          <div class="contrast-grid">
+            <div class="contrast-card contrast-ps">
+              <div class="c-head">Pattern A — "when" at the middle</div>
+              <div class="c-ex">
+                <strong>[Past Continuous]</strong> + when + [Simple Past]<br/><br/>
+                "I <strong>was cooking</strong> when he arrived."<br/>
+                "She <strong>was sleeping</strong> when the alarm rang."<br/>
+                "They <strong>were watching</strong> TV when the power went off."
+              </div>
+            </div>
+            <div class="contrast-card contrast-pc">
+              <div class="c-head">Pattern B — "while" at the start</div>
+              <div class="c-ex">
+                While + <strong>[Past Continuous]</strong>, + [Simple Past]<br/><br/>
+                "While I <strong>was cooking</strong>, he arrived."<br/>
+                "While she <strong>was sleeping</strong>, the alarm rang."<br/>
+                "While they <strong>were watching</strong> TV, the power went off."
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box" style="margin-top:1rem;">
+            <strong>📌 Both sentences mean the SAME thing!</strong><br/>
+            The only difference is whether "when" or "while" comes first.
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin:1.25rem 0 0.5rem;">Two simultaneous actions — حدثان في نفس الوقت:</p>
+          <div style="background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:14px;font-size:0.875rem;">
+            <p style="margin-bottom:8px;">When two longer actions happen <strong>at the same time</strong>, use Past Continuous for both:</p>
+            <ul class="examples-list">
+              <li><div><span class="example-en">While she <span class="hl-pc">was cooking</span>, he <span class="hl-pc">was cleaning</span>.</span><span class="example-ar">بينما كانت تطبخ، كان هو ينظف</span></div></li>
+              <li><div><span class="example-en">I <span class="hl-pc">was talking</span> on the phone while she <span class="hl-pc">was watching</span> TV.</span><span class="example-ar">كنت أتحدث بالهاتف بينما كانت تشاهد التلفاز</span></div></li>
+            </ul>
+          </div>
+
+          <!-- Full comparison table -->
+          <p style="font-size:0.875rem;font-weight:700;margin:1.25rem 0 0.5rem;">Full Comparison — مقارنة شاملة:</p>
+          <table class="formula-table">
+            <thead><tr><th>Simple Past</th><th>Past Continuous</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Completed action<br/><small>حدث منتهٍ تماماً</small></td>
+                <td>Action in progress at a moment<br/><small>حدث كان مستمراً في لحظة ما</small></td>
+              </tr>
+              <tr>
+                <td>I <span class="hl">read</span> a book. (finished)</td>
+                <td>I <span class="hl-pc">was reading</span> a book. (in progress)</td>
+              </tr>
+              <tr>
+                <td>She <span class="hl">called</span> me. (short, complete)</td>
+                <td>She <span class="hl-pc">was calling</span> me. (at that moment)</td>
+              </tr>
+              <tr>
+                <td>They <span class="hl">watched</span> TV last night.</td>
+                <td>At 9pm they <span class="hl-pc">were watching</span> TV.</td>
+              </tr>
+              <tr>
+                <td>Signal words: yesterday, ago, last…</td>
+                <td>Signal words: while, when, at that moment…</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3.8 Common Mistakes -->
+      <div class="grammar-box" style="margin-bottom:1.25rem;">
+        <div class="grammar-box-head"><h3>🚫 Common Mistakes — أخطاء شائعة يجب تجنبها</h3></div>
+        <div class="grammar-box-body">
+
+          <p style="font-size:0.875rem;font-weight:700;margin-bottom:0.5rem;">Mistake 1 — Using "didn't" instead of "wasn't/weren't":</p>
+          <div class="mistake-row">
+            <div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>I <strong>didn't sleeping</strong>.</div>
+            <div class="mistake-right"><div class="mistake-label">✓ Correct</div>I <strong>wasn't sleeping</strong>.</div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin:1rem 0 0.5rem;">Mistake 2 — Using base verb instead of -ing after was/were:</p>
+          <div class="mistake-row">
+            <div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>She was <strong>cook</strong> dinner.</div>
+            <div class="mistake-right"><div class="mistake-label">✓ Correct</div>She was <strong>cooking</strong> dinner.</div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin:1rem 0 0.5rem;">Mistake 3 — Using wrong helper verb (was/were):</p>
+          <div class="mistake-row">
+            <div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>They <strong>was</strong> playing football.</div>
+            <div class="mistake-right"><div class="mistake-label">✓ Correct</div>They <strong>were</strong> playing football.</div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin:1rem 0 0.5rem;">Mistake 4 — Using Past Continuous for stative verbs:</p>
+          <div class="mistake-row">
+            <div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>I <strong>was knowing</strong> the answer.</div>
+            <div class="mistake-right"><div class="mistake-label">✓ Correct</div>I <strong>knew</strong> the answer. (Simple Past)</div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin:1rem 0 0.5rem;">Mistake 5 — Forgetting to double the consonant in -ing:</p>
+          <div class="mistake-row">
+            <div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>He was <strong>runing</strong>. / She was <strong>siting</strong>.</div>
+            <div class="mistake-right"><div class="mistake-label">✓ Correct</div>He was <strong>running</strong>. / She was <strong>sitting</strong>.</div>
+          </div>
+
+          <p style="font-size:0.875rem;font-weight:700;margin:1rem 0 0.5rem;">Mistake 6 — Forgetting to drop -e before -ing:</p>
+          <div class="mistake-row">
+            <div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>She was <strong>writeing</strong>. / He was <strong>driveing</strong>.</div>
+            <div class="mistake-right"><div class="mistake-label">✓ Correct</div>She was <strong>writing</strong>. / He was <strong>driving</strong>.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3.9 Summary Table -->
+      <div class="grammar-box">
+        <div class="grammar-box-head"><h3>📊 Full Summary Table — جدول شامل</h3></div>
+        <div class="grammar-box-body">
+          <table class="formula-table">
+            <thead><tr><th>Form</th><th>Structure</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Affirmative (+)</strong><br/><small>المثبت</small></td><td>Subject + <span class="hl-pc">was/were</span> + verb-ing</td><td>She <span class="hl-pc">was cooking</span> dinner.</td></tr>
+              <tr><td><strong>Negative (−)</strong><br/><small>النفي</small></td><td>Subject + <span class="hl-pc">wasn't/weren't</span> + verb-ing</td><td>She <span class="hl-pc">wasn't cooking</span> dinner.</td></tr>
+              <tr><td><strong>Yes/No Question (?)</strong><br/><small>سؤال نعم/لا</small></td><td><span class="hl-pc">Was/Were</span> + subject + verb-ing?</td><td><span class="hl-pc">Was</span> she cooking dinner?</td></tr>
+              <tr><td><strong>Short Answer (Yes)</strong></td><td>Yes, subject + <span class="hl-pc">was/were</span>.</td><td>Yes, she <span class="hl-pc">was</span>.</td></tr>
+              <tr><td><strong>Short Answer (No)</strong></td><td>No, subject + <span class="hl-pc">wasn't/weren't</span>.</td><td>No, she <span class="hl-pc">wasn't</span>.</td></tr>
+              <tr><td><strong>WH- Question</strong><br/><small>سؤال معلومات</small></td><td>WH- + <span class="hl-pc">was/were</span> + subject + verb-ing?</td><td><span class="hl-pc">What</span> was she cooking?</td></tr>
+              <tr><td><strong>Interrupted action</strong><br/><small>حدث مقطوع</small></td><td>[Past Cont.] + when + [Simple Past]</td><td>I was reading <em>when</em> she called.</td></tr>
+              <tr><td><strong>Simultaneous actions</strong><br/><small>حدثان متزامنان</small></td><td>While + [PC], [PC]</td><td>While I was cooking, he was cleaning.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 4. EXERCISES ===== -->
+    <section class="lesson-block" id="exercises">
+      <div class="block-header">
+        <div class="block-num">4</div>
+        <h2>Practice Exercises</h2>
+        <span class="block-time">⏱ 10 min</span>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 1 — Multiple Choice</div>
+        <div class="ex-question">Choose the correct form: "At 10pm last night, I ___ a movie."</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','pc_q1')">watch</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','pc_q1')">watched</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb1','pc_q1')">was watching</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb1','pc_q1')">were watching</button>
+        </div>
+        <div class="ex-feedback" id="fb1"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 2 — Fill in the Blank</div>
+        <div class="ex-question">Complete: "She ___ (run) when she fell." (Past Continuous)</div>
+        <div class="fill-hint">Hint: run → running (double n). Subject = she → was.</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f2" type="text" placeholder="was/were + verb-ing"/>
+          <button class="check-btn" onclick="checkFill('f2','was running','fb2','pc_q2')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb2"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 3 — Multiple Choice</div>
+        <div class="ex-question">Which sentence is correct? (negative)</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','pc_q3')">They didn't sleeping.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','pc_q3')">They weren't sleep.</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb3','pc_q3')">They weren't sleeping.</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb3','pc_q3')">They not were sleeping.</button>
+        </div>
+        <div class="ex-feedback" id="fb3"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 4 — Fill in the Blank</div>
+        <div class="ex-question">Complete: "___ you studying when I called?" (question form)</div>
+        <div class="fill-hint">Hint: "you" → Were. Start the question with the helper verb.</div>
+        <div class="fill-wrap">
+          <input class="fill-in" id="f4" type="text" placeholder="Was / Were"/>
+          <button class="check-btn" onclick="checkFill('f4','were','fb4','pc_q4')">Check ✓</button>
+        </div>
+        <div class="ex-feedback" id="fb4"></div>
+      </div>
+
+      <div class="exercise-block">
+        <div class="ex-label">Exercise 5 — Multiple Choice</div>
+        <div class="ex-question">What is the correct -ing form of the verb "write"?</div>
+        <div class="ex-options">
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','pc_q5')">writeing</button>
+          <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'fb5','pc_q5')">writing</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','pc_q5')">writting</button>
+          <button class="ex-opt" onclick="answerMC(this,false,'fb5','pc_q5')">wrote</button>
+        </div>
+        <div class="ex-feedback" id="fb5"></div>
+      </div>
+
+      <div class="score-box" id="practice-score-box">
+        <div class="score-num" id="practice-score">—</div>
+        <div class="score-label" id="practice-label">Click to see your practice score</div>
+        <div class="nav-btns">
+          <button class="nav-btn nav-btn-light" onclick="showPracticeScore()">Calculate Practice Score</button>
+          <button class="nav-btn nav-btn-accent" onclick="scrollToSection('exam')">Continue to Big Exam →</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="lesson-divider"></div>
+
+    <!-- ===== 5. BIG EXAM ===== -->
+    <section class="lesson-block" id="exam">
+      <div class="block-header">
+        <div class="block-num">5</div>
+        <h2>Big Final Exam</h2>
+        <span class="block-time">⏱ 15 min</span>
+      </div>
+
+      <div class="exam-section">
+        <div class="exam-header">
+          <div class="exam-badge">Final Exam</div>
+          <h2>Past Continuous Tense — امتحان شامل</h2>
+          <p>20 questions covering everything you learned in this session. Good luck! 🎯</p>
+        </div>
+
+        <!-- SECTION A: -ing Spelling (Q1–Q4) -->
+        <div class="exam-section-title">Section A — -ing Spelling Rules (4 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 1 / 20</div>
+          <div class="ex-question">What is the correct -ing form of "swim"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef1','pc_e1')">swiming</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef1','pc_e1')">swimming</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef1','pc_e1')">swimeing</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef1','pc_e1')">swimm</button>
+          </div>
+          <div class="ex-feedback" id="ef1"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 2 / 20</div>
+          <div class="ex-question">What is the correct -ing form of "drive"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef2','pc_e2')">driveing</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef2','pc_e2')">drivving</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef2','pc_e2')">driving</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef2','pc_e2')">drove</button>
+          </div>
+          <div class="ex-feedback" id="ef2"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 3 / 20</div>
+          <div class="ex-question">What is the correct -ing form of "lie"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef3','pc_e3')">lieing</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef3','pc_e3')">liing</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef3','pc_e3')">lied</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef3','pc_e3')">lying</button>
+          </div>
+          <div class="ex-feedback" id="ef3"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 4 / 20</div>
+          <div class="ex-question">What is the correct -ing form of "sit"?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef4','pc_e4')">siting</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef4','pc_e4')">sitting</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef4','pc_e4')">sitiing</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef4','pc_e4')">satting</button>
+          </div>
+          <div class="ex-feedback" id="ef4"></div>
+        </div>
+
+        <!-- SECTION B: Was / Were (Q5–Q8) -->
+        <div class="exam-section-title">Section B — Was / Were (4 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 5 / 20</div>
+          <div class="ex-question">Complete: "I ___ reading a book when she called."</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef5','pc_e5')">were</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef5','pc_e5')">was</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef5','pc_e5')">am</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef5','pc_e5')">be</button>
+          </div>
+          <div class="ex-feedback" id="ef5"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 6 / 20</div>
+          <div class="ex-question">Complete: "They ___ playing football all afternoon."</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef6','pc_e6')">was</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef6','pc_e6')">were</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef6','pc_e6')">are</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef6','pc_e6')">did</button>
+          </div>
+          <div class="ex-feedback" id="ef6"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 7 / 20</div>
+          <div class="ex-question">Complete: "She ___ cooking dinner at 7pm."</div>
+          <div class="fill-hint">Subject = "she" → was or were?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef7" type="text" placeholder="was / were"/>
+            <button class="check-btn" onclick="checkFill('ef7','was','ef7fb','pc_e7')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef7fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 8 / 20</div>
+          <div class="ex-question">Complete: "We ___ waiting for the bus when it started raining."</div>
+          <div class="fill-hint">Subject = "we" → was or were?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef8" type="text" placeholder="was / were"/>
+            <button class="check-btn" onclick="checkFill('ef8','were','ef8fb','pc_e8')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef8fb"></div>
+        </div>
+
+        <!-- SECTION C: Affirmative / Negative / Question (Q9–Q14) -->
+        <div class="exam-section-title">Section C — Affirmative, Negative &amp; Questions (6 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 9 / 20</div>
+          <div class="ex-question">Which sentence is grammatically CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef9','pc_e9')">She was cook dinner.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef9','pc_e9')">She were cooking dinner.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef9','pc_e9')">She was cooking dinner.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef9','pc_e9')">She cooking dinner.</button>
+          </div>
+          <div class="ex-feedback" id="ef9"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 10 / 20</div>
+          <div class="ex-question">Which negative sentence is CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef10','pc_e10')">He didn't sleeping.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef10','pc_e10')">He wasn't sleep.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef10','pc_e10')">He wasn't sleeping.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef10','pc_e10')">He not sleeping.</button>
+          </div>
+          <div class="ex-feedback" id="ef10"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 11 / 20</div>
+          <div class="ex-question">Which question is CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef11','pc_e11')">Did you studying?</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef11','pc_e11')">Were you study?</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef11','pc_e11')">Were you studying?</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef11','pc_e11')">You were studying?</button>
+          </div>
+          <div class="ex-feedback" id="ef11"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 12 / 20</div>
+          <div class="ex-question">Complete: "I ___ (not / watch) TV — I was studying."</div>
+          <div class="fill-hint">Negative Past Continuous. Subject = I → wasn't</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef12" type="text" placeholder="wasn't / weren't + verb-ing"/>
+            <button class="check-btn" onclick="checkFill('ef12','wasn\'t watching','ef12fb','pc_e12')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef12fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 13 / 20</div>
+          <div class="ex-question">What is the correct short answer to: "Was he running?" (positive)</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef13','pc_e13')">Yes, he were.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef13','pc_e13')">Yes, he was.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef13','pc_e13')">Yes, he did.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef13','pc_e13')">Yes, he is.</button>
+          </div>
+          <div class="ex-feedback" id="ef13"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 14 / 20</div>
+          <div class="ex-question">Complete: "___ they laughing when you entered?" (question form)</div>
+          <div class="fill-hint">Subject = "they" → Was or Were?</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef14" type="text" placeholder="Was / Were"/>
+            <button class="check-btn" onclick="checkFill('ef14','were','ef14fb','pc_e14')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef14fb"></div>
+        </div>
+
+        <!-- SECTION D: When / While — PC vs Simple Past (Q15–Q18) -->
+        <div class="exam-section-title">Section D — When / While Patterns (4 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 15 / 20</div>
+          <div class="ex-question">Which sentence is CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef15','pc_e15')">I was reading when she was call.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef15','pc_e15')">I reading when she called.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef15','pc_e15')">I was reading when she called.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef15','pc_e15')">I was reading when she was called.</button>
+          </div>
+          <div class="ex-feedback" id="ef15"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 16 / 20</div>
+          <div class="ex-question">Complete: "While he ___ (drive), his phone rang."</div>
+          <div class="fill-hint">Past Continuous. Subject = he → was. drive → driving (drop -e)</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef16" type="text" placeholder="was/were + verb-ing"/>
+            <button class="check-btn" onclick="checkFill('ef16','was driving','ef16fb','pc_e16')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef16fb"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 17 / 20</div>
+          <div class="ex-question">Two simultaneous actions — which sentence is CORRECT?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef17','pc_e17')">While she cooked, he cleaned.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef17','pc_e17')">While she was cooking, he clean.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef17','pc_e17')">While she was cooking, he was cleaning.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef17','pc_e17')">While she was cook, he was clean.</button>
+          </div>
+          <div class="ex-feedback" id="ef17"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 18 / 20</div>
+          <div class="ex-question">Complete: "The baby ___ (sleep) when the doorbell rang."</div>
+          <div class="fill-hint">Past Continuous. Subject = the baby (= it/singular) → was. sleep → sleeping</div>
+          <div class="fill-wrap">
+            <input class="fill-in" id="ef18" type="text" placeholder="was/were + verb-ing"/>
+            <button class="check-btn" onclick="checkFill('ef18','was sleeping','ef18fb','pc_e18')">Check ✓</button>
+          </div>
+          <div class="ex-feedback" id="ef18fb"></div>
+        </div>
+
+        <!-- SECTION E: Choose the Correct Sentence (Q19–Q20) -->
+        <div class="exam-section-title">Section E — Identify the Correct Sentence (2 questions)</div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 19 / 20</div>
+          <div class="ex-question">Which sentence uses Past Continuous CORRECTLY?</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef19','pc_e19')">I was knowing the answer. (stative verb)</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef19','pc_e19')">They were ran to the park.</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef19','pc_e19')">She was writing a report at midnight.</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef19','pc_e19')">He was not go to school.</button>
+          </div>
+          <div class="ex-feedback" id="ef19"></div>
+        </div>
+
+        <div class="exam-block exercise-block">
+          <div class="ex-label">Question 20 / 20</div>
+          <div class="ex-question">Choose the sentence that BEST completes the story: "The rain was falling heavily. The wind ___ through the trees. Suddenly, a loud noise woke everyone up."</div>
+          <div class="ex-options">
+            <button class="ex-opt" onclick="answerMC(this,false,'ef20','pc_e20')">blowed</button>
+            <button class="ex-opt" data-correct="true" onclick="answerMC(this,true,'ef20','pc_e20')">was blowing</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef20','pc_e20')">blows</button>
+            <button class="ex-opt" onclick="answerMC(this,false,'ef20','pc_e20')">blown</button>
+          </div>
+          <div class="ex-feedback" id="ef20"></div>
+        </div>
+
+        <!-- Exam Score Box -->
+        <div class="exam-score-box" id="exam-score-box">
+          <div class="exam-score-num" id="exam-score-num">—</div>
+          <div class="exam-grade" id="exam-grade">Your Result</div>
+          <div class="exam-score-bar">
+            <div class="exam-score-fill" id="exam-score-fill"></div>
+          </div>
+          <div class="exam-score-label" id="exam-score-label">Answer all 20 questions, then click to see your final result.</div>
+          <div class="nav-btns" style="margin-top:1.25rem;">
+            <button class="nav-btn nav-btn-light" onclick="showExamScore()">Calculate My Score 🎯</button>
+            <a href="past-simple.html" class="nav-btn" style="background:rgba(255,255,255,0.15);color:#fff;text-decoration:none;padding:10px 24px;border-radius:999px;font-weight:600;font-size:0.9rem;">← Past Simple</a>
+            <a href="../index.html" class="nav-btn nav-btn-accent">Home →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/lesson.js"></script>
+<script>
+function showPracticeScore() {
+  const keys = ['pc_q1','pc_q2','pc_q3','pc_q4','pc_q5'];
+  const s = calcScore(keys);
+  document.getElementById('practice-score').textContent = s + '/5';
+  const label = s === 5 ? 'Perfect! You are ready for the Big Exam! 🎉'
+    : s >= 3 ? 'Good job! Review any mistakes, then take the Big Exam.'
+    : 'Review the grammar section carefully before the exam.';
+  document.getElementById('practice-label').textContent = label;
+}
+
+function showExamScore() {
+  const keys = [
+    'pc_e1','pc_e2','pc_e3','pc_e4','pc_e5',
+    'pc_e6','pc_e7','pc_e8','pc_e9','pc_e10',
+    'pc_e11','pc_e12','pc_e13','pc_e14','pc_e15',
+    'pc_e16','pc_e17','pc_e18','pc_e19','pc_e20'
+  ];
+  const s = calcScore(keys);
+  const pct = Math.round((s / 20) * 100);
+
+  document.getElementById('exam-score-num').textContent = s + '/20';
+  document.getElementById('exam-score-fill').style.width = pct + '%';
+
+  let grade, label;
+  if (s >= 18) {
+    grade = '🏆 Excellent — ممتاز';
+    label = 'Outstanding! You have fully mastered the Past Continuous Tense. Keep going!';
+  } else if (s >= 15) {
+    grade = '⭐ Very Good — جيد جداً';
+    label = 'Great work! Minor mistakes — review the -ing spelling rules and was/were usage.';
+  } else if (s >= 12) {
+    grade = '👍 Good — جيد';
+    label = 'Good effort! Go back and review the grammar section, especially the when/while patterns.';
+  } else if (s >= 8) {
+    grade = '📚 Needs Practice — يحتاج مراجعة';
+    label = 'Keep practicing! Re-read the full grammar guide and try again.';
+  } else {
+    grade = '🔁 Try Again — أعد المحاولة';
+    label = 'Don\'t give up! Read the lesson from the beginning and try the exam again.';
+  }
+
+  document.getElementById('exam-grade').textContent = grade;
+  document.getElementById('exam-score-label').textContent = label + ' (' + pct + '%)';
+}
+</script>
+</body>
+</html>
